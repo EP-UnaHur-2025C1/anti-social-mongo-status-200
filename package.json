@@ -7,9 +7,14 @@
     "dev": "nodemon src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Gerardo Gonzalez Tulian",
+  "author": "Status:200",
   "license": "MIT",
   "devDependencies": {
     "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.1"
   }
 }
