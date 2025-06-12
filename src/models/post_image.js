@@ -7,7 +7,9 @@ const post_imageSchema = new mongoose.Schema({
     },
     post: {
         type: mongoose.Schema.ObjectId,
-        ref: "Post",
+        ref: 'Post',
         required: true
     }
 },{strict: false})
+
+module.exports = mongoose.model('Post_image', post_imageSchema)

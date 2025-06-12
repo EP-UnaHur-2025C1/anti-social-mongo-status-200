@@ -6,6 +6,10 @@ const commentSchema = new mongoose.Schema({
         required: true,
         minLenght: 1
     },
+    fecha:{
+        type: Date,
+        required: true
+    },
     user:{
         type: mongoose.Schema.ObjectId,
         ref: 'User',
@@ -17,6 +21,14 @@ const commentSchema = new mongoose.Schema({
         required: true
     }
 
-}, {strict: false, timestamps: true})
+}, {strict: false})
+
+commentSchema.virtual('visible').get(()=>{
+    const fechaActual = new Date()
+    return(
+        (this.fecha.getFullYear() - fechaActual.getFullYear()) * 12 + ( this.fecha.getMonth() - fechaActual.getMonth()) 
+        > process.env.ANTIGUEDAD_MAXIMA_COMENTARIOS
+    )
+})
 
 module.exports = mongoose.model('Comment', commentSchema)
