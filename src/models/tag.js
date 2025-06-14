@@ -5,7 +5,7 @@ const tagSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-})
+},{strict:true})
 
 tagSchema.virtual('posts', {
     ref: 'Post',

@@ -12,8 +12,11 @@ const PORT = process.env.PORT || 3001
 
 app.use(express.json())
 
-app.use('/users', userRouter)
+app.use('/comments', commentRouter)
+app.use('/post_images', post_imageRouter)
 app.use('/posts', postRouter)
+app.use('/tags', tagRouter)
+app.use('/users', userRouter)
 
 conectarMongoDB()
 

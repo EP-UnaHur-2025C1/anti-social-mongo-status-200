@@ -1,15 +1,19 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-const Tag = require('../models/tag')
+const Tag = require('../models/tag');
+const Post_image = require('../models/post_image');
 const mongoose = require('mongoose');
 
 const obtenerPosts = async (req, res) => {
     try {
-        const users = await Post.find()
-        .select('descripcion fecha -_id')
-        .populate('user','nickName eMail -_id')
-        .populate('tags', 'nombre -_id')
-        res.status(200).json(users)
+        const posts = await Post.find()
+        .select('descripcion fecha ')
+        .populate('user','nickName -_id')
+        .populate('tags', 'nombre')
+        if(!posts){
+            return res.status(404).json({message: 'Publicaciones no encontradas'})
+        }
+        res.status(200).json(posts)
     } catch (error) {
         res.status(500).json({error: 'Error interno del servidor'})
     }
@@ -18,9 +22,9 @@ const obtenerUnPost = async (req, res) => {
     try {
         const id = req.params.id
         const post = await Post.findById(id)
-        .select('descripcion fecha -_id')
-        .populate('user','nickName eMail -_id')
-        .populate('tags', 'nombre -_id')
+        .select('descripcion fecha ')
+        .populate('user','nickName -_id')
+        .populate('tags', 'nombre')
         if(!post){
             return res.status(404).json({message: 'Publicacion no encontrada'})
         }
@@ -36,22 +40,23 @@ const modificarPost = async (req, res) => {
             new: true,
             runValidators: true
         })
-        if(!userModificado){
+        if(!postModificado){
             return res.status(404).json({message: 'Publicacion no encontrada'})
         }
-        res.status(200).json(userModificado)
+        res.status(200).json(postModificado)
     } catch (error) {
-        res.status(500).json({error: 'Error interno del servidor'})
+        res.status(500).json({error: 'Error interno del servidor', e: error.message})
     }
 }
 const eliminarPost = async (req, res) => {
     try {
         const id = req.params.id
-        const postEliminado = await Post.findByIdAndDelete()
+        const postEliminado = await Post.findByIdAndDelete(id)
         if (!postEliminado){
             return res.status(404).json({message: 'Publicacion no encontrada'})
         }
         await Comment.deleteMany({post: id })
+        await Post_image.deleteMany({post: id })
         res.status(200).json({message: 'Publicacion eliminada exitosamente'})        
     } catch (error) {
         res.status(500).json({error: 'Error interno del servidor'})
@@ -69,32 +74,32 @@ const asociarTag = async (req, res) => {
         if(!tag){
             return res.status(404).json({message: 'Etiqueta no encontrada'})
         }
-        if(post.tags.includes(idTag)){
+        if(post.tags.includes(tagId)){
             return res.status(400).json({message: 'La etiqueta ya esta asociada a la publicacion'})
         }
-        post.tags.push(idTag)
+        post.tags.push(tagId)
         await post.save()
         res.status(200).json(post)
     } catch (error) {
-        res.status(500).json({error: 'Error interno del servidor'})
+        res.status(500).json({error: 'Error interno del servidor', e: error.message})
     }
 }
 const obtenerComentariosDeUnPost = async (req, res) => {
     try {
         const id = req.params.id
         const post = await Post.findById(id)
-        .select('descripcion fecha -_id')
-        .populate('user','nickName eMail -_id')
-        .populate('tags', 'nombre -_id')
+        // .select('descripcion fecha -_id')
+        // .populate('user','nickName eMail -_id')
+        // .populate('tags', 'nombre -_id')
         if(!post){
             return res.status(404).json({message: 'Publicacion no encontrada'})
         }
         const comments = await Comment.find({post: id})
         .select('descripcion fecha visible -_id')
-        .populate('user','nickName eMail -_id')
-        res.status(200).json({post: post, comments: comments})
+        .populate('user','nickName -_id')
+        res.status(200).json(comments)
     } catch (error) {
-        res.status(500).json({error: 'Error interno del servidor'})
+        res.status(500).json({error: 'Error interno del servidor', e: error.message})
     }
 }
 

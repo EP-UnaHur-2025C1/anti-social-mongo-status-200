@@ -9,7 +9,7 @@ const crearUser = async (req, res) => {
         await nuevoUser.save()
         res.status(201).json(nuevoUser)
     } catch (error) {
-        res.status(500).json({error: 'Error interno del servidor'})
+        res.status(500).json({error: 'Error interno del servidor', trace: error.message})
     }
 }
 
@@ -44,6 +44,7 @@ const modificarUser = async (req, res) => {
             new: true,
             runValidators: true
         })
+        .select('nickName eMail -_id')
         if(!userModificado){
             return res.status(404).json({message: 'Usuario no encontrado'})
         }
@@ -75,12 +76,13 @@ const obtenerPostsDeUnUser = async (req, res) => {
         if(!user){
             return res.status(404).json({message: 'Usuario no encontrado'})
         }
-        const posts = await Post.find({user: user._id.toString()}).select('descripcion fecha')
-        res.status(200).json({user: user, posts: posts})
+        const posts = await Post.find({user: user._id}).select('descripcion fecha tags')
+        res.status(200).json({posts: posts})
     } catch (error) {
         res.status(500).json({error: 'Error interno del servidor'})
     }
 }
+
 const crearPost = async (req, res) => {
     try {
         const nickName = req.params.nickName
@@ -98,9 +100,10 @@ const crearPost = async (req, res) => {
         await nuevoPost.save()
         res.status(201).json(nuevoPost)
     } catch (error) {
-        res.status(500).json({message: 'Error interno del servidor'})
+        res.status(500).json({message: 'Error interno del servidor', trace: error.message})
     }
 }
+
 const comentarPost = async (req, res) => {
     try {
         const nickName = req.params.nickName

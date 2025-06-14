@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 const commentSchema = new mongoose.Schema({
     descripcion:{
@@ -21,13 +22,13 @@ const commentSchema = new mongoose.Schema({
         required: true
     }
 
-}, {strict: false})
+}, {strict: false, toJSON: { virtuals: true }, id: false})
 
-commentSchema.virtual('visible').get(()=>{
+commentSchema.virtual('visible').get(function(){
     const fechaActual = new Date()
+    const diferenciaEntreFechas = (fechaActual.getFullYear() - this.fecha.getFullYear() ) * 12 + (fechaActual.getMonth() - this.fecha.getMonth() )
     return(
-        (this.fecha.getFullYear() - fechaActual.getFullYear()) * 12 + ( this.fecha.getMonth() - fechaActual.getMonth()) 
-        > process.env.ANTIGUEDAD_MAXIMA_COMENTARIOS
+        diferenciaEntreFechas < process.env.ANTIGUEDAD_MAXIMA_COMENTARIOS
     )
 })
 
