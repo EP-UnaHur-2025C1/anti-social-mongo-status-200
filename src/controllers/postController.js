@@ -103,11 +103,35 @@ const obtenerComentariosDeUnPost = async (req, res) => {
     }
 }
 
+const obtenerComentariosRecientesDeUnPost = async (req, res) => {
+    try {
+        const id = req.params.id
+        const post = await Post.findById(id)
+        // .select('descripcion fecha -_id')
+        // .populate('user','nickName eMail -_id')
+        // .populate('tags', 'nombre -_id')
+        if(!post){
+            return res.status(404).json({message: 'Publicacion no encontrada'})
+        }
+        const comments = await Comment.find({post: id})
+        .select('descripcion fecha visible -_id')
+        .populate('user','nickName -_id')
+        // console.log(`Todos los comments: ${comments}`);
+        const commentsRecientes = comments.filter(comment => comment.visible === true);
+        // console.log(`Comments recientes: ${commentsRecientes}`);
+        
+        res.status(200).json(commentsRecientes)
+    } catch (error) {
+        res.status(500).json({error: 'Error interno del servidor', e: error.message})
+    }
+}
+
 module.exports = {
     obtenerPosts,
     obtenerUnPost,
     modificarPost,
     eliminarPost,
     asociarTag,
-    obtenerComentariosDeUnPost
+    obtenerComentariosDeUnPost,
+    obtenerComentariosRecientesDeUnPost
 }
