@@ -36,13 +36,18 @@ const obtenerUnPost = async (req, res) => {
 const modificarPost = async (req, res) => {
     try {
         const id = req.params.id
-        const postModificado = await Post.findByIdAndUpdate(id, req.body, {
+        const descripcionActualizada = {};
+        if (!req.body.descripcion){
+            return res.status(400).json({message: 'Descripción no agregada'})
+        }
+        descripcionActualizada.descripcion = req.body.descripcion;
+        const postModificado = await Post.findByIdAndUpdate(id, descripcionActualizada, {
             new: true,
             runValidators: true
         })
         if(!postModificado){
             return res.status(404).json({message: 'Publicacion no encontrada'})
-        }
+        }        
         res.status(200).json(postModificado)
     } catch (error) {
         res.status(500).json({error: 'Error interno del servidor', e: error.message})
@@ -126,6 +131,22 @@ const obtenerComentariosRecientesDeUnPost = async (req, res) => {
     }
 }
 
+const obtenerTags = async (req, res) => {
+    try {
+        const id = req.params.id
+        const post = await Post.findById(id).populate('tags');
+        if(!post){
+            return res.status(404).json({message: 'Publicacion no encontrada'})
+        }
+        const tags = post.tags
+        console.log(tags);
+        
+        res.status(200).json(tags)
+    } catch (error) {
+        res.status(500).json({error: 'Error interno del servidor', e: error.message})
+    }
+}
+
 module.exports = {
     obtenerPosts,
     obtenerUnPost,
@@ -133,5 +154,6 @@ module.exports = {
     eliminarPost,
     asociarTag,
     obtenerComentariosDeUnPost,
-    obtenerComentariosRecientesDeUnPost
+    obtenerComentariosRecientesDeUnPost,
+    obtenerTags
 }

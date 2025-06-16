@@ -9,5 +9,6 @@ router.get('/:id/commentsRecientes', postController.obtenerComentariosRecientesD
 router.patch('/:id', postController.modificarPost)//
 router.delete('/:id', postController.eliminarPost)//
 router.post('/:postId/asociar/:tagId', postController.asociarTag)//
+router.get('/:id/tags', postController.obtenerTags)
 
 module.exports = router
