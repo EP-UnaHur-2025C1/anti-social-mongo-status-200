@@ -138,9 +138,7 @@ const obtenerTags = async (req, res) => {
         if(!post){
             return res.status(404).json({message: 'Publicacion no encontrada'})
         }
-        const tags = post.tags
-        console.log(tags);
-        
+        const tags = post.tags        
         res.status(200).json(tags)
     } catch (error) {
         res.status(500).json({error: 'Error interno del servidor', e: error.message})
