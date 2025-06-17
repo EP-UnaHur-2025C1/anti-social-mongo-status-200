@@ -1,6 +1,4 @@
-const User = require('../models/user');
-const Post = require('../models/post');
-const Comment = require('../models/comment');
+const {User, Post, Comment} = require('../models/index');
 const mongoose = require('mongoose');
 
 const crearUser = async (req, res) => {

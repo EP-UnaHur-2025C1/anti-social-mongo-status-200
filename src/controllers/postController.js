@@ -1,7 +1,4 @@
-const Post = require('../models/post');
-const Comment = require('../models/comment');
-const Tag = require('../models/tag');
-const Post_image = require('../models/post_image');
+const {Post, Comment, Tag, Post_image} = require('../models/index');
 const mongoose = require('mongoose');
 
 const obtenerPosts = async (req, res) => {

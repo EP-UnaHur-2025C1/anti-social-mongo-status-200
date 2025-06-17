@@ -1,4 +1,4 @@
-const Comment = require('../models/comment');
+const {Comment} = require('../models/index');
 const mongoose = require('mongoose');
 
 const obtenerUnComment = async (req, res) => {

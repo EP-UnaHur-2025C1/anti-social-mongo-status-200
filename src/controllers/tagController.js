@@ -1,5 +1,4 @@
-const Tag = require('../models/tag');
-const Post = require('../models/post')
+const {Tag, Post} = require('../models/index');
 const mongoose = require('mongoose');
 
 const crearTag = async (req, res) => {

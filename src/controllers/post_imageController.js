@@ -1,4 +1,4 @@
-const Post_image = require('../models/post_image');
+const {Post_image} = require('../models/index');
 const Post = require('../models/post');
 
 const crearPost_image = async (req, res) => {
