@@ -33,20 +33,6 @@ const obtenerUnPost_image = async (req, res) => {
     }
 }
 
-const obtenerPost_imagesDeUnPost = async (req, res) => {
-    try {
-        const postId = req.params.postId
-        const post = await Post.findById(postId)
-        if(!post){
-            return res.status(404).json({message: 'Publicacion no encontrada'})
-        }
-        const post_images = await Post_image.find({post: postId}).select('url')
-        res.status(200).json(post_images)
-    } catch (error) {
-        res.status(500).json({error: 'Error interno del servidor', e: error.message})
-    }
-}
-
 const modificarPost_image = async (req, res) => {
     try {
         const id = req.params.id
@@ -77,7 +63,6 @@ const eliminarPost_image = async (req, res) => {
 module.exports = {
     crearPost_image,
     obtenerUnPost_image,
-    obtenerPost_imagesDeUnPost,
     modificarPost_image,
     eliminarPost_image
 }

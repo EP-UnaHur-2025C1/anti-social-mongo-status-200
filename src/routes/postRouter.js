@@ -10,5 +10,6 @@ router.patch('/:id', postController.modificarPost)//
 router.delete('/:id', postController.eliminarPost)//
 router.post('/:postId/asociar/:tagId', postController.asociarTag)//
 router.get('/:id/tags', postController.obtenerTags)
+router.get("/:id/post_images", postController.obtenerPostImages)
 
 module.exports = router

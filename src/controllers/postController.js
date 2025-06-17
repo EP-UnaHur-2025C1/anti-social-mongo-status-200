@@ -145,6 +145,25 @@ const obtenerTags = async (req, res) => {
     }
 }
 
+const obtenerPostImages = async (req, res) => {
+    try {
+        const postId = req.params.id;
+        const post = await Post.findById(postId);
+        if (!post) {
+            return res.status(404).json({ message: 'Publicación no encontrada.' });
+        }
+
+        const postImages = await Post_image.find({ post: postId })
+                                            .select('url'); 
+
+        res.status(200).json(postImages);
+
+    } catch (error) {
+        console.error("Error al obtener las imágenes de la publicación:", error);
+        res.status(500).json({ error: 'Error interno del servidor al obtener imágenes.', details: error.message });
+    }
+}
+
 module.exports = {
     obtenerPosts,
     obtenerUnPost,
@@ -153,5 +172,6 @@ module.exports = {
     asociarTag,
     obtenerComentariosDeUnPost,
     obtenerComentariosRecientesDeUnPost,
-    obtenerTags
+    obtenerTags,
+    obtenerPostImages
 }
