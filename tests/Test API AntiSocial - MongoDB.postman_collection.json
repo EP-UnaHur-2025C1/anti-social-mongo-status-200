@@ -1,0 +1,3552 @@
+{
+	"info": {
+		"_postman_id": "bddc766c-03ff-4167-b85a-83bc76a281a2",
+		"name": "Test API AntiSocial - MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44064892"
+	},
+	"item": [
+		{
+			"name": "Test User",
+			"item": [
+				{
+					"name": "Test crearUser",
+					"item": [
+						{
+							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"raul\",\r\n    \"eMail\": \"raul@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"pepe\",\r\n    \"eMail\": \"pepe@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda agregar un usuario cuyo nickName ya está usado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"raul\",\r\n    \"eMail\": \"raulYaEstaRegistrado@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail 2\n- POST Que no se pueda agregar un usuario cuyo nickName ya está usado"
+				},
+				{
+					"name": "Test crearPost",
+					"item": [
+						{
+							"name": "Que un usuario pueda crear un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"primer post de raul XD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda crear un segundo post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"segundo post de raul XD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda crear un post 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"primer post de pepe :D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario que no existe no pueda crear un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"primer post de pepe1 :D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueNoExiste/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueNoExiste",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- POST Que un usuario pueda crear un post\n    \n- POST Que un usuario pueda crear un segundo post\n    \n- POST Que un usuario pueda crear un post 2\n    \n- POST Que un usuario que no existe no pueda crear un post"
+				},
+				{
+					"name": "Test comentarPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será comentado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda agregar un comentario a su propio post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Raul comenta su el post creado para ser comentado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/685087ac6346063e7bc68aa8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"685087ac6346063e7bc68aa8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda agregar un comentario a un post de otro usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-12-31\",\r\n    \"descripcion\": \"Pepe comenta el post de raul creado para ser comentado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/comentarPost/685087ac6346063e7bc68aa8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"comentarPost",
+										"685087ac6346063e7bc68aa8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario que no existe no pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este usuario no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/685087ac6346063e7bc68aa8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueNoExiste",
+										"comentarPost",
+										"685087ac6346063e7bc68aa8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda agregar un comentario a un post que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este post no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/postQueNoExiste/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"postQueNoExiste",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario que no existe no pueda agregar un comentario a un post que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Ni el usuario ni el post existen\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/postQueNoExiste/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueNoExiste",
+										"comentarPost",
+										"postQueNoExiste",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- POST Que se pueda crear un post para ser comentado\n- POST Que un usuario pueda agregar un comentario a su propio post\n- POST Que un usuario pueda agregar un comentario a un post de otro usuario\n- POST Que un usuario que no existe no pueda agregar un comentario a un post\n- POST Que un usuario no pueda agregar un comentario a un post que no existe\n- POST Que un usuario que no existe no pueda agregar un comentario a un post que no existe"
+				},
+				{
+					"name": "Test obtenerUsers",
+					"item": [
+						{
+							"name": "Que se puedan ver todos los usuarios",
+							"request": {
+								"auth": {
+									"type": "inherit"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- GET Que se puedan ver todos los usuarios"
+				},
+				{
+					"name": "Test obtenerUnUser",
+					"item": [
+						{
+							"name": "Que se pueda ver un usuario dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/raul",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda ver un usuario dado un determinado nickName 2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/pepe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda ver un usuario que no existe dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueNoExiste"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- GET Que se pueda ver un usuario dado un determinado nickName\n- GET Que se pueda ver un usuario dado un determinado nickName 2\n- GET Que no se pueda ver un usuario que no existe dado un determinado nickName"
+				},
+				{
+					"name": "Test obtenerPostsDeUnUser",
+					"item": [
+						{
+							"name": "Que se puedan ver los posts de un usuario dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/raul/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan ver los posts de un usuario dado un determinado nickName 2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan ver los posts de un usuario que no existe dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueNoExiste/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueNoExiste",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- GET Que se puedan ver los posts de un usuario dado un determinado nickName\n- GET Que se puedan ver los posts de un usuario dado un determinado nickName 2\n- GET Que no se puedan ver los posts de un usuario que no existe dado un determinado nickName"
+				},
+				{
+					"name": "Test modificarUser",
+					"item": [
+						{
+							"name": "Que se pueda agregar un usuario para ser modificado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"usuarioQueSeraModificado\",\r\n    \"eMail\": \"usuarioQueSeraModificado@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda modificar un user dado un nickName",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"eMail\": \"nuevoEMailDeUsuario@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueSeraModificado/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueSeraModificado",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar el nickName de un user",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"nuevoUsuarioQueSeraModificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueSeraModificado/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueSeraModificado",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar un user que no existe dado un nickName",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"eMail\": \"esteUsuarioNoExiste@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueNoExiste/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueNoExiste",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- POST Que se pueda agregar un usuario para ser modificado\n- PATCH Que se pueda modificar un user dado un nickName\n- PATCH Que no se pueda modificar el nickName de un user\n- PATCH Que no se pueda modificar un user que no existe dado un nickName"
+				},
+				{
+					"name": "Test eliminarUser",
+					"item": [
+						{
+							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail para ser posteriormenete eliminado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"usuarioCreadoParaSerEliminado\",\r\n    \"eMail\": \"usuarioCreadoParaSerEliminado@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un usuario dado un nickName",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioCreadoParaSerEliminado/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioCreadoParaSerEliminado",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda eliminar un usuario ya eliminado",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioCreadoParaSerEliminado/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioCreadoParaSerEliminado",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda eliminar un usuario que no existe dado un nickName",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/usuarioQueNoExiste/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"usuarioQueNoExiste",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail para ser posteriormenete eliminado\n- DEL Que se pueda eliminar un usuario dado un nickName\n- DEL Que no se pueda eliminar un usuario ya eliminado\n- DEL Que no se pueda eliminar un usuario que no existe dado un nickName"
+				}
+			],
+			"description": "Carpeta de la entidad User dividida en subcarpetas, donde cada una testeará diferentes funcionalidades:\n\nTest crearUser:\n\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail 2\n- POST Que no se pueda agregar un usuario cuyo nickName ya está usado\n    \n\nTest crearPost:\n\n- POST Que un usuario pueda crear un post\n- POST Que un usuario pueda crear un segundo post\n- POST Que un usuario pueda crear un post 2\n- POST Que un usuario que no existe no pueda crear un post\n    \n\nTest comentarPost:\n\n- POST Que se pueda crear un post para ser comentado\n- POST Que un usuario pueda agregar un comentario a su propio post\n- POST Que un usuario pueda agregar un comentario a un post de otro usuario\n- POST Que un usuario que no existe no pueda agregar un comentario a un post\n- POST Que un usuario no pueda agregar un comentario a un post que no existe\n- POST Que un usuario que no existe no pueda agregar un comentario a un post que no existe\n    \n\nTest obtenerUsers:\n\n- GET Que se puedan ver todos los usuarios\n    \n\nTest obtenerUnUser:\n\n- GET Que se pueda ver un usuario dado un determinado nickName\n- GET Que se pueda ver un usuario dado un determinado nickName 2\n- GET Que no se pueda ver un usuario que no existe dado un determinado nickName\n    \n\nTest obtenerPostsDeUnUser:\n\n- GET Que se puedan ver los posts de un usuario dado un determinado nickName\n- GET Que se puedan ver los posts de un usuario dado un determinado nickName 2\n- GET Que no se puedan ver los posts de un usuario que no existe dado un determinado nickName\n    \n\nTest modificarUser:\n\n- POST Que se pueda agregar un usuario para ser modificado\n- PATCH Que se pueda modificar un user dado un nickName\n- PATCH Que no se pueda modificar el nickName de un user\n- PATCH Que no se pueda modificar un user que no existe dado un nickName\n    \n\nTest eliminarUser:\n\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail para ser posteriormenete eliminado\n- DEL Que se pueda eliminar un usuario dado un nickName\n- DEL Que no se pueda eliminar un usuario ya eliminado\n- DEL Que no se pueda eliminar un usuario que no existe dado un nickName"
+		},
+		{
+			"name": "Test Post",
+			"item": [
+				{
+					"name": "Test obtenerPosts",
+					"item": [
+						{
+							"name": "Que se puedan obtener todos los posts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- Que se puedan obtener todos los posts"
+				},
+				{
+					"name": "Test obtenerUnPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser obtenido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"Test para obtenerUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda obtener un post dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/68508c5d6346063e7bc68acd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"68508c5d6346063e7bc68acd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda obtener un post que no existe dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/postQueNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"postQueNoExiste"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- POST Que se pueda crear un post para ser obtenido\n- GET Que se pueda obtener un post dado un ID\n- GET Que no se pueda obtener un post que no existe dado un ID"
+				},
+				{
+					"name": "Test obtenerComentariosDeUnPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"Test para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar recientemente un post de otro usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Raul comenta recientemente el post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"68508cbe6346063e7bc68ad2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Raul comenta el post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"68508cbe6346063e7bc68ad2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar recientemente su propio post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Pepe comenta recientemente su post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"68508cbe6346063e7bc68ad2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su propio post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Pepe comenta su post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"68508cbe6346063e7bc68ad2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener todos los comentarios de un post dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/68508cbe6346063e7bc68ad2/todosLosComments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"68508cbe6346063e7bc68ad2",
+										"todosLosComments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan obtener todos los comentarios de un post que no existe dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/postQueNoExiste/todosLosComments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"postQueNoExiste",
+										"todosLosComments"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- POST Que se pueda crear un post para ser comentado\n- POST Que un usuario pueda comentar recientemente un post de otro usuario\n- POST Que un usuario pueda comentar un post de otro usuario\n- POST Que un usuario pueda comentar recientemente su propio post\n- POST Que un usuario pueda comentar su propio post\n- GET Que se puedan obtener todos los comentarios de un post dado un ID\n- GET Que no se puedan obtener todos los comentarios de un post que no existe dado un ID"
+				},
+				{
+					"name": "Test obtenerComentariosRecientesDeUnPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"Test para obtenerComentariosRecientesDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario y se vea por ser reciente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este mensaje de Raul se mostrará por ser reciente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"68508e626346063e7bc68ae8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Este comentario de Raul no se mostrará\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"68508e626346063e7bc68ae8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-12-31\",\r\n    \"descripcion\": \"Este comentario de Raul no se mostrará\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"68508e626346063e7bc68ae8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su post y se vea por ser reciente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este comentario de Pepe se verá por ser reciente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"comentarPost",
+										"68508e626346063e7bc68ae8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su propio post pero no se vea por la antigüedad",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Este comentario de Pepe no se verá por la antigüedad\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"comentarPost",
+										"68508e626346063e7bc68ae8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su propio post pero no se vea por la antigüedad 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-12-31\",\r\n    \"descripcion\": \"Este comentario de Pepe no se verá por la antigüedad\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"pepe",
+										"comentarPost",
+										"68508e626346063e7bc68ae8",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan ver solo los comentarios recientes de un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/68508e626346063e7bc68ae8/commentsRecientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"68508e626346063e7bc68ae8",
+										"commentsRecientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan obtener todos los comentarios recientes de un post que no existe dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/estePostNoExiste/commentsRecientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"estePostNoExiste",
+										"commentsRecientes"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- POST Que se pueda crear un post para ser comentado\n- POST Que un usuario pueda comentar un post de otro usuario y se vea por ser reciente\n- POST Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad\n- POST Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad 2\n- POST Que un usuario pueda comentar su post y se vea por ser reciente\n- POST Que un usuario pueda comentar su propio post pero no se vea por la antigüedad\n- POST Que un usuario pueda comentar su propio post pero no se vea por la antigüedad 2\n- GET Que se puedan ver solo los comentarios recientes de un post\n- GET Que no se puedan obtener todos los comentarios recientes de un post que no existe dado un ID"
+				},
+				{
+					"name": "Test modificarPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser modificado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-06-18\",\r\n    \"descripcion\": \"Este post será modificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que solo se pueda modificar la descripción de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"El post de Raul fue modificado :p\",\r\n    \"fecha\": \"2020-05-18\",\r\n    \"user\": \"684f5535eed18b173cd4996c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"685090696346063e7bc68b0c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar la fecha de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-05-18\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"685090696346063e7bc68b0c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar el ID de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\": \"684f57fb040827542d9bfaec\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"685090696346063e7bc68b0c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar el user de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": \"684f5535eed18b173cd4996c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"685090696346063e7bc68b0c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar la descripción de un post que no existe dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"Este post no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/estePostNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"estePostNoExiste"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- POST Que se pueda crear un post para ser modificado\n- PATCH Que solo se pueda modificar la descripción de un post dado un ID\n- PATCH Que no se pueda modificar la fecha de un post dado un ID\n- PATCH Que no se pueda modificar el ID de un post dado un ID\n- PATCH Que no se pueda modificar el user de un post dado un ID\n- PATCH Que no se pueda modificar la descripción de un post que no existe dado un ID"
+				},
+				{
+					"name": "Test eliminarPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser posteriormente eliminado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será eliminado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un tag para asociar a un post que será eliminado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#postEliminado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post que será eliminado a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/6850a32cf0c094912f53ad2c/asociar/6850a323f0c094912f53ad29",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850a32cf0c094912f53ad2c",
+										"asociar",
+										"6850a323f0c094912f53ad29"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un post",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6850a32cf0c094912f53ad2c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850a32cf0c094912f53ad2c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda obtener un post eliminado dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/685090ca6346063e7bc68b11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"685090ca6346063e7bc68b11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un post eliminado no aparezca en los posts de un tag",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tags/6850a323f0c094912f53ad29/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags",
+										"6850a323f0c094912f53ad29",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda eliminar un post que nunca fue creado",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/postNuncaCreado",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"postNuncaCreado"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- POST Que se pueda crear un post para ser posteriormente eliminado\n- DEL Que se pueda eliminar un post\n- GET Que no se pueda obtener un post eliminado dado un ID\n- DEL Que no se pueda eliminar un post que nunca fue creado"
+				},
+				{
+					"name": "Test obtenerPostImages",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test obtenerPostImages\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"obtenerPostImages.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b2d3cfa4bc6644ed4710",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b2d3cfa4bc6644ed4710"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener las imágenes asociadas a un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6850b2d3cfa4bc6644ed4710/post_images",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850b2d3cfa4bc6644ed4710",
+										"post_images"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test asociarTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#EsteTagSeráAsociadoAUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/685091de6346063e7bc68b1a/asociar/685091d16346063e7bc68b17",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"685091de6346063e7bc68b1a",
+										"asociar",
+										"685091d16346063e7bc68b17"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda asociar un post que no existe a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/estePostNoExiste/asociar/685091d16346063e7bc68b17",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"estePostNoExiste",
+										"asociar",
+										"685091d16346063e7bc68b17"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda asociar un post a un tag que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/685091de6346063e7bc68b1a/asociar/esteTagNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"685091de6346063e7bc68b1a",
+										"asociar",
+										"esteTagNoExiste"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda asociar un post que no existe a un tag que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/estePostNoExiste/asociar/esteTagNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"estePostNoExiste",
+										"asociar",
+										"esteTagNoExiste"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- POST Que se pueda crear un tag para asociar a un post\n- POST Que se pueda crear un post para asociarlo a un tag\n- POST Que se pueda asociar un post a un tag\n- POST Que no se pueda asociar un post que no existe a un tag\n- POST Que no se pueda asociar un post a un tag que no existe\n- POST Que no se pueda asociar un post que no existe a un tag que no existe"
+				},
+				{
+					"name": "Test obtenerTags",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#EsteTagSeráAsociadoAUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/6850924a6346063e7bc68b23/asociar/685092406346063e7bc68b20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850924a6346063e7bc68b23",
+										"asociar",
+										"685092406346063e7bc68b20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener los tags de un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6850924a6346063e7bc68b23/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850924a6346063e7bc68b23",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan obtener los tags de un post que no existe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/estePostNoExiste/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"estePostNoExiste",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post en la que se testeará:\n\n- POST Que se pueda crear un tag para asociar a un post\n- POST Que se pueda crear un post para asociarlo a un tag\n- POST Que se pueda asociar un post a un tag\n- GET Que se puedan obtener los tags de un post\n- GET Que no se puedan obtener los tags de un post que no existe"
+				}
+			],
+			"description": "Carpeta de la entidad Post dividida en subcarpetas, donde cada una testeará diferentes funcionalidades:\n\nTest obtenerPosts:\n\n- GET Que se puedan obtener todos los posts\n    \n\nTest obtenerUnPost:\n\n- POST Que se pueda crear un post para ser obtenido\n- GET Que se pueda obtener un post dado un ID\n- GET Que no se pueda obtener un post que no existe dado un ID\n    \n\nTest obtenerComentariosDeUnPost:\n\n- POST Que se pueda crear un post para ser comentado\n- POST Que un usuario pueda comentar recientemente un post de otro usuario\n- POST Que un usuario pueda comentar un post de otro usuario\n- POST Que un usuario pueda comentar recientemente su propio post\n- POST Que un usuario pueda comentar su propio post\n- GET Que se puedan obtener todos los comentarios de un post dado un ID\n- GET Que no se puedan obtener todos los comentarios de un post que no existe dado un ID\n    \n\nTest obtenerComentariosRecientesDeUnPost:\n\n- POST Que se pueda crear un post para ser comentado\n- POST Que un usuario pueda comentar un post de otro usuario y se vea por ser reciente\n- POST Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad\n- POST Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad 2\n- POST Que un usuario pueda comentar su post y se vea por ser reciente\n- POST Que un usuario pueda comentar su propio post pero no se vea por la antigüedad\n- POST Que un usuario pueda comentar su propio post pero no se vea por la antigüedad 2\n- GET Que se puedan ver solo los comentarios recientes de un post\n- GET Que no se puedan obtener todos los comentarios recientes de un post que no existe dado un ID\n    \n\nTest modificarPost:\n\n- POST Que se pueda crear un post para ser modificado\n- PATCH Que solo se pueda modificar la descripción de un post dado un ID\n- PATCH Que no se pueda modificar la fecha de un post dado un ID\n- PATCH Que no se pueda modificar el ID de un post dado un ID\n- PATCH Que no se pueda modificar el user de un post dado un ID\n- PATCH Que no se pueda modificar la descripción de un post que no existe dado un ID\n    \n\nTest eliminarPost:\n\n- POST Que se pueda crear un post para ser posteriormente eliminado\n- DEL Que se pueda eliminar un post\n- GET Que no se pueda obtener un post eliminado dado un ID\n- DEL Que no se pueda eliminar un post que nunca fue creado\n    \n\nTest asociarTag:\n\n- POST Que se pueda crear un tag para asociar a un post\n- POST Que se pueda crear un post para asociarlo a un tag\n- POST Que se pueda asociar un post a un tag\n- POST Que no se pueda asociar un post que no existe a un tag\n- POST Que no se pueda asociar un post a un tag que no existe\n- POST Que no se pueda asociar un post que no existe a un tag que no existe\n    \n\nTest obtenerTags:\n\n- POST Que se pueda crear un tag para asociar a un post\n- POST Que se pueda crear un post para asociarlo a un tag\n- POST Que se pueda asociar un post a un tag\n- GET Que se puedan obtener los tags de un post\n- GET Que no se puedan obtener los tags de un post que no existe"
+		},
+		{
+			"name": "Test Tag",
+			"item": [
+				{
+					"name": "Test crearTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#Funny\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test obtenerTags",
+					"item": [
+						{
+							"name": "Que se puedan obtener todos los tags",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test obtenerUnTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para luego ser obtenido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#EsteTagSeráObtenido\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda obtener un tag dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tags/68509b5ef0c094912f53ad16",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags",
+										"68509b5ef0c094912f53ad16"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda obtener un tag que no existe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tags/esteTagNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags",
+										"esteTagNoExiste"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test obtenerPostsConUnTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 1 asociado al tag #obtenerPostsConUnTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 2 asociado al tag #obtenerPostsConUnTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#obtenerPostsConUnTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/68509cc3f0c094912f53ad1f/asociar/68509cb3f0c094912f53ad1c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"68509cc3f0c094912f53ad1f",
+										"asociar",
+										"68509cb3f0c094912f53ad1c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/68509ca9f0c094912f53ad1a/asociar/68509cb3f0c094912f53ad1c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"68509ca9f0c094912f53ad1a",
+										"asociar",
+										"68509cb3f0c094912f53ad1c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener los posts de un tag",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tags/68509cb3f0c094912f53ad1c/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags",
+										"68509cb3f0c094912f53ad1c",
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test eliminarTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 1 asociado al tag #eliminarTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 2 asociado al tag #eliminarTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#eliminarTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/6850a6abf0c094912f53ad37/asociar/6850a6d0f0c094912f53ad3c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850a6abf0c094912f53ad37",
+										"asociar",
+										"6850a6d0f0c094912f53ad3c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/6850a6c5f0c094912f53ad3a/asociar/6850a6d0f0c094912f53ad3c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850a6c5f0c094912f53ad3a",
+										"asociar",
+										"6850a6d0f0c094912f53ad3c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un tag dado un ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tags/6850a6d0f0c094912f53ad3c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags",
+										"6850a6d0f0c094912f53ad3c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un post no tenga un tag asociado luego de que haya sido eliminado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6850a6abf0c094912f53ad37/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850a6abf0c094912f53ad37",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un post no tenga un tag asociado luego de que haya sido eliminado 2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6850a6c5f0c094912f53ad3a/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850a6c5f0c094912f53ad3a",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test modificarTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para ser modificado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#SeráModificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un tag para ser modificado Copy",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#FueModificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tags/6850a78cf0c094912f53ad49",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tags",
+										"6850a78cf0c094912f53ad49"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Test Comment",
+			"item": [
+				{
+					"name": "Test obtenerUnComment",
+					"item": [
+						{
+							"name": "Que se pueda agregar un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test de obtenerUnComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Test de obtenerUnComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/6850a912f0c094912f53ad4d/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"6850a912f0c094912f53ad4d",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda ver un comentario dado un ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/6850a929f0c094912f53ad51",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6850a929f0c094912f53ad51"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda ver un comentario que no existe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/comentarioQueNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"comentarioQueNoExiste"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test modificarComment",
+					"item": [
+						{
+							"name": "Que se pueda agregar un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test de modificarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Test de modificarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/6850aa90f0c094912f53ad57/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"6850aa90f0c094912f53ad57",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda ver un comentario dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"Comentario modificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/6850aaabf0c094912f53ad5f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6850aaabf0c094912f53ad5f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar un comentario que no existe",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"Este comentario no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/comentarioQueNoExiste",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"comentarioQueNoExiste"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test eliminarComment",
+					"item": [
+						{
+							"name": "Que se pueda agregar un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test de eliminarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Test de eliminarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/comentarPost/6850ab29f0c094912f53ad63/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"comentarPost",
+										"6850ab29f0c094912f53ad63",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda ver un comentario dado un ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/6850ab32f0c094912f53ad67",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6850ab32f0c094912f53ad67"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que un comentario eliminado no aparezca en un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6850ab29f0c094912f53ad63/todosLosComments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850ab29f0c094912f53ad63",
+										"todosLosComments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda ver un comentario eliminado",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/6850ab32f0c094912f53ad67",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6850ab32f0c094912f53ad67"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Test Post_Images",
+			"item": [
+				{
+					"name": "Test crearPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test para asociarlo a una imagen\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"crearPost_Image.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b1d0cfa4bc6644ed470a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b1d0cfa4bc6644ed470a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test obtenerUnPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test obtenerUnPost_Image\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"obtenerUnPost_Image.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b55bb976ebe18e5ee42e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b55bb976ebe18e5ee42e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda obtener un Post_Image dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b56db976ebe18e5ee431",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b56db976ebe18e5ee431"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test modificarPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test modificarPost_Image\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"modificarPost_Image.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b5c8b976ebe18e5ee436",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b5c8b976ebe18e5ee436"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda modificar un Post_Image dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"urlModificada.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b5d2b976ebe18e5ee439",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b5d2b976ebe18e5ee439"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test eliminarPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test eliminarPost_Image\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/raul/crearPost/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"raul",
+										"crearPost",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"eliminarPost_Image.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b689b976ebe18e5ee43d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b689b976ebe18e5ee43d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un Post_Image dado un ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"urlModificada.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/post_images/6850b69ab976ebe18e5ee440",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"post_images",
+										"6850b69ab976ebe18e5ee440"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Que una imagen eliminada no aparezca en las Post_Images de un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6850b689b976ebe18e5ee43d/post_images",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6850b689b976ebe18e5ee43d",
+										"post_images"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
