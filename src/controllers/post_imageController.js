@@ -1,25 +1,30 @@
-const {Post_image} = require('../models/index');
+const Post_image = require('../models/post_image');
 const Post = require('../models/post');
 
 const crearPost_image = async (req, res) => {
     try {
         const postId = req.params.postId
-        const {url} = req.body
+        //const {url} = req.body
         const post = await Post.findById(postId)
         if(!post){
             return res.status(404).json({message: "Publicacion no encontrada"})
         }
+        const {path} = req.file
         const nuevoPost_image = new Post_image({
-            url: url,
-            post: postId
+          url: path,
+          post: postId
         })
         await nuevoPost_image.save()
         res.status(200).json(nuevoPost_image)
-    } catch (error) {
+      } catch (error) {
         res.status(500).json({error: 'Error interno del servidor', e: error.message})
+      }
     }
-}
-
+    /*const nuevoPost_image = new Post_image({
+        url: url,
+        post: postId
+    })*/
+    
 const obtenerUnPost_image = async (req, res) => {
     try {
         const id = req.params.id
