@@ -129,6 +129,94 @@ const comentarPost = async (req, res) => {
     }
 }
 
+const obtenerSeguidores = async (req,res) => {
+  try {
+    const nickName = req.params.nickName
+    const user = await User.findOne({nickName: nickName}).select('nickName -_id').populate('followers','nickName')
+    if(!user){
+      return res.status(404).json({message: 'Usuario no encontrado'})
+    }
+    res.status(200).json(user)
+  } catch (error) {
+    res.status(500).json({error: 'Error interno del servidor', e: error.message})
+  }
+}
+
+const obtenerSeguidos = async (req,res) => {
+  try {
+    const nickName = req.params.nickName
+    const user = await User.findOne({nickName: nickName}).select('nickName -_id').populate('follows','nickName')
+    if(!user){
+      return res.status(404).json({message: 'Usuario no encontrado'})
+    }
+    res.status(200).json(user)
+  } catch (error) {
+    res.status(500).json({error: 'Error interno del servidor', e: error.message})
+  }
+}
+
+const seguirUser = async (req,res) => {
+  try {
+    const userNickName = req.params.nickName
+    const targetNickName = req.params.targetNickName
+
+    const userTarget = await User.findOne({nickName: targetNickName})
+    const targetId = userTarget._id.toString()
+    const user = await User.findOne({nickName: userNickName})
+    const userId = user._id.toString()
+
+    const nuevoUser = await User.findOneAndUpdate({nickName: userNickName},
+      {$addToSet: {follows: targetId}},
+      {
+        new: true,
+        runValidators: true
+      })
+    const nuevoTarget = await User.findOneAndUpdate({nickName: targetNickName},
+      {$addToSet: {followers: userId}},
+      {
+        new: true,
+        runValidators: true
+      })
+    if (!nuevoUser || !nuevoTarget) {
+      return res.status(404).json({ message: "Usuario no encontrado" })
+    }
+    res.status(200).json({ message: `Ahora sigues a ${targetNickName}`})
+  } catch (error) {
+    res.status(500).json({ message: `Error al seguir usuario`})
+  }
+}
+
+const dejarDeSeguirUser = async (req,res) => {
+  try {
+    const userNickName = req.params.nickName
+    const targetNickName = req.params.targetNickName
+
+    const user = await User.findOne({nickName:userNickName})
+    const userId = user._id.toString()
+    const target = await User.findOne({nickName:targetNickName})
+    const targetId = target._id.toString()
+
+    if (!user || !target) {
+      return res.status(404).json({ message: "Usuario no encontrado" })
+    }
+    await User.findOneAndUpdate({nickName: userNickName},{
+      $pull: { follows: targetId }
+    },{
+      new: true,
+      runValidators: true
+      })
+    await User.findOneAndUpdate({nickName: targetNickName},{
+      $pull: { followers: userId }
+    },{
+      new: true,
+      runValidators: true
+      })
+    res.status(200).json({ message: `Ya no sigues a ${targetNickName}`})
+  } catch (error) {
+    res.status(500).json({ message: "Error al seguir usuario"})
+  }
+}
+
 module.exports = {
     crearUser,
     obtenerUsers,
@@ -137,7 +225,11 @@ module.exports = {
     eliminarUser,
     obtenerPostsDeUnUser,
     crearPost,
-    comentarPost
+    comentarPost,
+    obtenerSeguidores,
+    obtenerSeguidos,
+    seguirUser,
+    dejarDeSeguirUser
 }
 
 

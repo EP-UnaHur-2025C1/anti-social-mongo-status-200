@@ -10,7 +10,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "La direccion de correo electronico es obligatoria"],
         match: [/.+\@.+\..+/, "La direccion de correo electronico no es valida"]
-    }
+    },
+    followers:[{
+      type: mongoose.Schema.ObjectId,
+      ref: 'User'
+    }],
+    follows:[{
+      type: mongoose.Schema.ObjectId,
+      ref: 'User'
+    }]
 }, {strict: false})
 
 module.exports = mongoose.model('User', userSchema)
