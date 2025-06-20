@@ -1,5 +1,4 @@
-const Post_image = require('../models/post_image');
-const Post = require('../models/post');
+const {Post_Image, Post} = require('../models/index');
 
 const crearPost_image = async (req, res) => {
     try {
@@ -10,7 +9,7 @@ const crearPost_image = async (req, res) => {
             return res.status(404).json({message: "Publicacion no encontrada"})
         }
         const {path} = req.file
-        const nuevoPost_image = new Post_image({
+        const nuevoPost_image = new Post_Image({
           url: path,
           post: postId
         })
@@ -28,7 +27,7 @@ const crearPost_image = async (req, res) => {
 const obtenerUnPost_image = async (req, res) => {
     try {
         const id = req.params.id
-        const post_image = await Post_image.findById(id).select('url').populate('post', '_id')
+        const post_image = await Post_Image.findById(id).select('url').populate('post', '_id')
         if(!post_image){
             return res.status(404).json({message: "Imagen no encontrada"})
         }
@@ -42,7 +41,7 @@ const modificarPost_image = async (req, res) => {
     try {
         const id = req.params.id
         const {url} = req.body
-        const post_imageModificada = await Post_image.findByIdAndUpdate(id, {$set: {url: url}}, {new: true, runValidators: true})
+        const post_imageModificada = await Post_Image.findByIdAndUpdate(id, {$set: {url: url}}, {new: true, runValidators: true})
         if(!post_imageModificada){
             return res.status(404).json({message: 'Imagen no encontrada'})
         }
@@ -55,7 +54,7 @@ const modificarPost_image = async (req, res) => {
 const eliminarPost_image = async (req, res) => {
     try {
         const id = req.params.id
-        const post_imageEliminada = await Post_image.findByIdAndDelete(id)
+        const post_imageEliminada = await Post_Image.findByIdAndDelete(id)
         if(!post_imageEliminada){
             return res.status(404).json({message: 'Imagen no encontrada'})
         }
