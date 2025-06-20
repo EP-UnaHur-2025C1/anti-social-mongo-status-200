@@ -1,4 +1,4 @@
-const {Post, Comment, Tag, Post_image} = require('../models/index');
+const {Post, Comment, Tag, Post_Image} = require('../models/index');
 const mongoose = require('mongoose');
 
 const obtenerPosts = async (req, res) => {
@@ -58,7 +58,7 @@ const eliminarPost = async (req, res) => {
             return res.status(404).json({message: 'Publicacion no encontrada'})
         }
         await Comment.deleteMany({post: id })
-        await Post_image.deleteMany({post: id })
+        await Post_Image.deleteMany({post: id })
         res.status(200).json({message: 'Publicacion eliminada exitosamente'})        
     } catch (error) {
         res.status(500).json({error: 'Error interno del servidor'})
@@ -150,7 +150,7 @@ const obtenerPostImages = async (req, res) => {
             return res.status(404).json({ message: 'Publicación no encontrada.' });
         }
 
-        const postImages = await Post_image.find({ post: postId })
+        const postImages = await Post_Image.find({ post: postId })
                                             .select('url'); 
 
         res.status(200).json(postImages);
