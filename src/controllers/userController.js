@@ -1,5 +1,4 @@
 const { User, Post, Comment } = require('../models/index');
-const mongoose = require('mongoose');
 
 const crearUser = async (req, res) => {
   try {
@@ -26,9 +25,6 @@ const obtenerUnUser = async (req, res) => {
   try {
     const nickName = req.params.nickName
     const user = await User.findOne({ nickName: nickName }).select('nickName eMail -_id')
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     res.status(200).json(user)
   } catch (error) {
     console.error(error);
@@ -46,9 +42,6 @@ const modificarUser = async (req, res) => {
       runValidators: true
     })
       .select('nickName eMail -_id')
-    if (!userModificado) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     res.status(200).json(userModificado)
   } catch (error) {
     console.error(error);
@@ -60,9 +53,6 @@ const eliminarUser = async (req, res) => {
   try {
     const nickName = req.params.nickName
     const userEliminado = await User.findOneAndDelete({ nickName: nickName })
-    if (!userEliminado) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     await Post.deleteMany({ nickName: nickName })
     await Comment.deleteMany({ nickName: nickName })
     res.status(200).json({ message: 'Usuario eliminado exitosamente' })
@@ -76,9 +66,6 @@ const obtenerPostsDeUnUser = async (req, res) => {
   try {
     const nickName = req.params.nickName
     const user = await User.findOne({ nickName: nickName }).select('nickName eMail _id')
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     const posts = await Post.find({ user: user._id }).select('descripcion fecha tags')
     res.status(200).json({ posts: posts })
   } catch (error) {
@@ -92,9 +79,6 @@ const crearPost = async (req, res) => {
     const nickName = req.params.nickName
     const { descripcion, fecha } = req.body
     const user = await User.findOne({ nickName: nickName })
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     const userId = user._id.toString()
     const nuevoPost = new Post({
       descripcion: descripcion,
@@ -115,14 +99,8 @@ const comentarPost = async (req, res) => {
     const postId = req.params.postId
     const { descripcion, fecha } = req.body
     const user = await User.findOne({ nickName: nickName })
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     const userId = user._id.toString()
     const post = await Post.findById(postId)
-    if (!post) {
-      return res.status(404).json({ message: 'Publicacion no encontrada' })
-    }
     const nuevoComment = new Comment({
       descripcion: descripcion,
       fecha: fecha,
@@ -141,9 +119,6 @@ const obtenerSeguidores = async (req, res) => {
   try {
     const nickName = req.params.nickName
     const user = await User.findOne({ nickName: nickName }).select('nickName -_id').populate('followers', 'nickName')
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     res.status(200).json(user)
   } catch (error) {
     console.error(error);
@@ -155,9 +130,6 @@ const obtenerSeguidos = async (req, res) => {
   try {
     const nickName = req.params.nickName
     const user = await User.findOne({ nickName: nickName }).select('nickName -_id').populate('follows', 'nickName')
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' })
-    }
     res.status(200).json(user)
   } catch (error) {
     console.error(error);
