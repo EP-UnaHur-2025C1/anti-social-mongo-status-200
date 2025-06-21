@@ -1,13 +1,13 @@
 const { User } = require('../../models/index');
 
-const seguirUserMiddleware = async (req, res, next) => {
+const dejarDeSeguirUserMiddleware = async (req, res, next) => {
   
   const userNickName = req.params.nickName
   const targetNickName = req.params.targetNickName
   
-  // Un usuario no puede seguirse a sí mismo
+  // Un usuario no puede dejar de seguirse a sí mismo
   if (userNickName === targetNickName) {
-    return res.status(400).json({ message: `No podés seguirte a vos mismo.` })
+    return res.status(400).json({ message: `No podés dejar de seguirte a vos mismo.` })
   }
   try {
     
@@ -17,16 +17,16 @@ const seguirUserMiddleware = async (req, res, next) => {
     if( !user || !userTarget ){
       return res.status(404).json({ msg: "Usuarios no encontrados." })
     }    
-    // Un usuario no puede seguir a otro usuario que ya sigue
-    if( user.follows.includes(userTarget._id)){
-      return res.status(400).json({ msg:"No podés seguir un usuario que ya seguís." })
+    // Un usuario no puede dejar de seguir a otro usuario que no siga
+    if( !user.follows.includes(userTarget._id)){
+      return res.status(400).json({ msg:`No seguías a ${targetNickName}.` })
       
     }
     
   } catch (error) {
-    res.status(500).json({ message: `Error al seguir usuario en el middleware` })
+    res.status(500).json({ message: `Error al dejar de seguir usuario en el middleware` })
   }
   next()
 }
 
-module.exports = seguirUserMiddleware 
+module.exports = dejarDeSeguirUserMiddleware 

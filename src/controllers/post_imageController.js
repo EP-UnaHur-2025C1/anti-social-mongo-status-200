@@ -3,7 +3,6 @@ const { Post_Image, Post } = require('../models/index');
 const crearPost_image = async (req, res) => {
     try {
         const postId = req.params.postId
-        //const {url} = req.body
         const post = await Post.findById(postId)
         if (!post) {
             return res.status(404).json({ message: "Publicacion no encontrada" })
@@ -16,13 +15,10 @@ const crearPost_image = async (req, res) => {
         await nuevoPost_image.save()
         res.status(200).json(nuevoPost_image)
     } catch (error) {
-        res.status(500).json({ error: 'Error interno del servidor', e: error.message })
+        console.error(error);
+        res.status(400).json({ error: 'Error al crear Post_Image' })
     }
 }
-/*const nuevoPost_image = new Post_image({
-    url: url,
-    post: postId
-})*/
 
 const obtenerUnPost_image = async (req, res) => {
     try {
@@ -33,34 +29,37 @@ const obtenerUnPost_image = async (req, res) => {
         }
         res.status(200).json(post_image)
     } catch (error) {
-        res.status(500).json({ error: 'Error interno del servidor', e: error.message })
+        console.error(error);
+        res.status(400).json({ error: 'Error al obtener Post_Image' })
     }
 }
 
 const modificarPost_image = async (req, res) => {
+    const id = req.params.id
+    const { url } = req.body
     try {
-        const id = req.params.id
-        const { url } = req.body
         const post_imageModificada = await Post_Image.findByIdAndUpdate(id, { $set: { url: url } }, { new: true, runValidators: true })
         if (!post_imageModificada) {
             return res.status(404).json({ message: 'Imagen no encontrada' })
         }
         res.status(200).json(post_imageModificada)
     } catch (error) {
-        res.status(500).json({ error: 'Error interno del servidor', e: error.message })
+        console.error(error);
+        res.status(400).json({ error: 'Error al modificar Post_Image' })
     }
 }
 
 const eliminarPost_image = async (req, res) => {
+    const id = req.params.id
     try {
-        const id = req.params.id
         const post_imageEliminada = await Post_Image.findByIdAndDelete(id)
         if (!post_imageEliminada) {
             return res.status(404).json({ message: 'Imagen no encontrada' })
         }
         res.status(200).json({ message: "Imagen eliminada exitosamente" })
     } catch (error) {
-        res.status(500).json({ error: 'Error interno del servidor', e: error.message })
+        console.error(error);
+        res.status(400).json({ error: 'Error al eliminar Post_Image' })
     }
 }
 

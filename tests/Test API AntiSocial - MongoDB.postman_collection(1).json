@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "bddc766c-03ff-4167-b85a-83bc76a281a2",
 		"name": "Test API AntiSocial - MongoDB",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "44064892"
 	},
 	"item": [
@@ -12,35 +12,6 @@
 				{
 					"name": "Test crearUser",
 					"item": [
-						{
-							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"nickName\": \"raul\",\r\n    \"eMail\": \"raul@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3000/users/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										""
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail 2",
 							"request": {
@@ -55,18 +26,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/"
 							},
 							"response": []
 						},
@@ -84,18 +44,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/"
 							},
 							"response": []
 						}
@@ -119,20 +68,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -150,20 +86,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -181,20 +104,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/crearPost/"
 							},
 							"response": []
 						},
@@ -212,20 +122,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueNoExiste/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueNoExiste",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/crearPost/"
 							},
 							"response": []
 						}
@@ -249,20 +146,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -280,21 +164,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/685087ac6346063e7bc68aa8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"685087ac6346063e7bc68aa8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/685087ac6346063e7bc68aa8/"
 							},
 							"response": []
 						},
@@ -312,21 +182,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/comentarPost/685087ac6346063e7bc68aa8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"comentarPost",
-										"685087ac6346063e7bc68aa8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/comentarPost/685087ac6346063e7bc68aa8/"
 							},
 							"response": []
 						},
@@ -344,21 +200,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/685087ac6346063e7bc68aa8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueNoExiste",
-										"comentarPost",
-										"685087ac6346063e7bc68aa8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/685087ac6346063e7bc68aa8/"
 							},
 							"response": []
 						},
@@ -376,21 +218,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/postQueNoExiste/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"postQueNoExiste",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/postQueNoExiste/"
 							},
 							"response": []
 						},
@@ -408,21 +236,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/postQueNoExiste/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueNoExiste",
-										"comentarPost",
-										"postQueNoExiste",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/postQueNoExiste/"
 							},
 							"response": []
 						}
@@ -436,22 +250,12 @@
 							"name": "Que se puedan ver todos los usuarios",
 							"request": {
 								"auth": {
-									"type": "inherit"
+									"type": "inherit",
+									"inherit": {}
 								},
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/"
 							},
 							"response": []
 						}
@@ -466,18 +270,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/raul",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul"
-									]
-								}
+								"url": "http://localhost:3000/users/raul"
 							},
 							"response": []
 						},
@@ -486,18 +279,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/pepe",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe"
-									]
-								}
+								"url": "http://localhost:3000/users/pepe"
 							},
 							"response": []
 						},
@@ -506,18 +288,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueNoExiste"
 							},
 							"response": []
 						}
@@ -532,19 +303,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/raul/posts",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"posts"
-									]
-								}
+								"url": "http://localhost:3000/users/raul/posts"
 							},
 							"response": []
 						},
@@ -553,19 +312,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/posts",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"posts"
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/posts"
 							},
 							"response": []
 						},
@@ -574,19 +321,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueNoExiste/posts",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueNoExiste",
-										"posts"
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/posts"
 							},
 							"response": []
 						}
@@ -610,18 +345,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/"
 							},
 							"response": []
 						},
@@ -639,19 +363,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueSeraModificado/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueSeraModificado",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueSeraModificado/"
 							},
 							"response": []
 						},
@@ -669,19 +381,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueSeraModificado/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueSeraModificado",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueSeraModificado/"
 							},
 							"response": []
 						},
@@ -699,19 +399,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueNoExiste/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueNoExiste",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/"
 							},
 							"response": []
 						}
@@ -735,18 +423,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/"
 							},
 							"response": []
 						},
@@ -755,19 +432,7 @@
 							"request": {
 								"method": "DELETE",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioCreadoParaSerEliminado/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioCreadoParaSerEliminado",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioCreadoParaSerEliminado/"
 							},
 							"response": []
 						},
@@ -776,19 +441,7 @@
 							"request": {
 								"method": "DELETE",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioCreadoParaSerEliminado/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioCreadoParaSerEliminado",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioCreadoParaSerEliminado/"
 							},
 							"response": []
 						},
@@ -797,24 +450,447 @@
 							"request": {
 								"method": "DELETE",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/users/usuarioQueNoExiste/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"usuarioQueNoExiste",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/"
 							},
 							"response": []
 						}
 					],
 					"description": "Subcarpeta de la entidad User en la que se testeará:\n\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail para ser posteriormenete eliminado\n- DEL Que se pueda eliminar un usuario dado un nickName\n- DEL Que no se pueda eliminar un usuario ya eliminado\n- DEL Que no se pueda eliminar un usuario que no existe dado un nickName"
+				},
+				{
+					"name": "Test seguirUser",
+					"item": [
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"seguirUser1\",\r\n    \"eMail\": \"seguirUser1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para ser seguido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"seguirUser2\",\r\n    \"eMail\": \"seguirUser2@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/seguirUser2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda seguir a otro que ya sigue",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/seguirUser2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda seguir a otro que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/usuarioQueNoExiste"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no se pueda seguir a sí mismo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/seguirUser1"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test obtenerSeguidores",
+					"item": [
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores1\",\r\n    \"eMail\": \"obtenerSeguidores1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores2\",\r\n    \"eMail\": \"obtenerSeguidores2@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores3\",\r\n    \"eMail\": \"obtenerSeguidores3@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para ser seguido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores4\",\r\n    \"eMail\": \"obtenerSeguidores4@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores1/follow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores2/follow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores3/follow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener todos los followers de un usuario",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores4/followers"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda dejar de seguir a otro",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores3/unfollow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener todos los followers de un usuario luego que uno haya dejado de seguir",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores4/followers"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores1/follow/obtenerSeguidores4"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test dejarDeSeguirUser",
+					"item": [
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"dejarDeSeguir1\",\r\n    \"eMail\": \"dejarDeSeguir1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para ser seguido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"dejarDeSeguir2\",\r\n    \"eMail\": \"dejarDeSeguir2@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/follow/dejarDeSeguir2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda dejar de seguir a otro",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/unfollow/dejarDeSeguir2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda dejar de seguir a otro que no seguía",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/unfollow/dejarDeSeguir2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no se pueda dejar de seguirse a sí mismo",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/unfollow/dejarDeSeguir1"
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"description": "Carpeta de la entidad User dividida en subcarpetas, donde cada una testeará diferentes funcionalidades:\n\nTest crearUser:\n\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail 2\n- POST Que no se pueda agregar un usuario cuyo nickName ya está usado\n    \n\nTest crearPost:\n\n- POST Que un usuario pueda crear un post\n- POST Que un usuario pueda crear un segundo post\n- POST Que un usuario pueda crear un post 2\n- POST Que un usuario que no existe no pueda crear un post\n    \n\nTest comentarPost:\n\n- POST Que se pueda crear un post para ser comentado\n- POST Que un usuario pueda agregar un comentario a su propio post\n- POST Que un usuario pueda agregar un comentario a un post de otro usuario\n- POST Que un usuario que no existe no pueda agregar un comentario a un post\n- POST Que un usuario no pueda agregar un comentario a un post que no existe\n- POST Que un usuario que no existe no pueda agregar un comentario a un post que no existe\n    \n\nTest obtenerUsers:\n\n- GET Que se puedan ver todos los usuarios\n    \n\nTest obtenerUnUser:\n\n- GET Que se pueda ver un usuario dado un determinado nickName\n- GET Que se pueda ver un usuario dado un determinado nickName 2\n- GET Que no se pueda ver un usuario que no existe dado un determinado nickName\n    \n\nTest obtenerPostsDeUnUser:\n\n- GET Que se puedan ver los posts de un usuario dado un determinado nickName\n- GET Que se puedan ver los posts de un usuario dado un determinado nickName 2\n- GET Que no se puedan ver los posts de un usuario que no existe dado un determinado nickName\n    \n\nTest modificarUser:\n\n- POST Que se pueda agregar un usuario para ser modificado\n- PATCH Que se pueda modificar un user dado un nickName\n- PATCH Que no se pueda modificar el nickName de un user\n- PATCH Que no se pueda modificar un user que no existe dado un nickName\n    \n\nTest eliminarUser:\n\n- POST Que se pueda agregar un usuario mandando el nickName y el eMail para ser posteriormenete eliminado\n- DEL Que se pueda eliminar un usuario dado un nickName\n- DEL Que no se pueda eliminar un usuario ya eliminado\n- DEL Que no se pueda eliminar un usuario que no existe dado un nickName"
@@ -830,17 +906,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts"
-									]
-								}
+								"url": "http://localhost:3000/posts"
 							},
 							"response": []
 						}
@@ -864,20 +930,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/crearPost/"
 							},
 							"response": []
 						},
@@ -886,18 +939,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/68508c5d6346063e7bc68acd",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"68508c5d6346063e7bc68acd"
-									]
-								}
+								"url": "http://localhost:3000/posts/68508c5d6346063e7bc68acd"
 							},
 							"response": []
 						},
@@ -906,18 +948,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/postQueNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"postQueNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/posts/postQueNoExiste"
 							},
 							"response": []
 						}
@@ -941,20 +972,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/crearPost/"
 							},
 							"response": []
 						},
@@ -972,21 +990,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"68508cbe6346063e7bc68ad2",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/"
 							},
 							"response": []
 						},
@@ -1004,21 +1008,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"68508cbe6346063e7bc68ad2",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/"
 							},
 							"response": []
 						},
@@ -1036,21 +1026,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"68508cbe6346063e7bc68ad2",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/"
 							},
 							"response": []
 						},
@@ -1068,21 +1044,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"68508cbe6346063e7bc68ad2",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/68508cbe6346063e7bc68ad2/"
 							},
 							"response": []
 						},
@@ -1091,19 +1053,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/68508cbe6346063e7bc68ad2/todosLosComments",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"68508cbe6346063e7bc68ad2",
-										"todosLosComments"
-									]
-								}
+								"url": "http://localhost:3000/posts/68508cbe6346063e7bc68ad2/todosLosComments"
 							},
 							"response": []
 						},
@@ -1112,19 +1062,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/postQueNoExiste/todosLosComments",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"postQueNoExiste",
-										"todosLosComments"
-									]
-								}
+								"url": "http://localhost:3000/posts/postQueNoExiste/todosLosComments"
 							},
 							"response": []
 						}
@@ -1148,20 +1086,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/crearPost/"
 							},
 							"response": []
 						},
@@ -1179,21 +1104,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"68508e626346063e7bc68ae8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/"
 							},
 							"response": []
 						},
@@ -1211,21 +1122,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"68508e626346063e7bc68ae8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/"
 							},
 							"response": []
 						},
@@ -1243,21 +1140,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"68508e626346063e7bc68ae8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/68508e626346063e7bc68ae8/"
 							},
 							"response": []
 						},
@@ -1275,21 +1158,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"comentarPost",
-										"68508e626346063e7bc68ae8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/"
 							},
 							"response": []
 						},
@@ -1307,21 +1176,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"comentarPost",
-										"68508e626346063e7bc68ae8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/"
 							},
 							"response": []
 						},
@@ -1339,21 +1194,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"pepe",
-										"comentarPost",
-										"68508e626346063e7bc68ae8",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/pepe/comentarPost/68508e626346063e7bc68ae8/"
 							},
 							"response": []
 						},
@@ -1362,19 +1203,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/68508e626346063e7bc68ae8/commentsRecientes",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"68508e626346063e7bc68ae8",
-										"commentsRecientes"
-									]
-								}
+								"url": "http://localhost:3000/posts/68508e626346063e7bc68ae8/commentsRecientes"
 							},
 							"response": []
 						},
@@ -1383,19 +1212,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/estePostNoExiste/commentsRecientes",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"estePostNoExiste",
-										"commentsRecientes"
-									]
-								}
+								"url": "http://localhost:3000/posts/estePostNoExiste/commentsRecientes"
 							},
 							"response": []
 						}
@@ -1419,20 +1236,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -1450,18 +1254,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"685090696346063e7bc68b0c"
-									]
-								}
+								"url": "http://localhost:3000/posts/685090696346063e7bc68b0c"
 							},
 							"response": []
 						},
@@ -1479,18 +1272,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"685090696346063e7bc68b0c"
-									]
-								}
+								"url": "http://localhost:3000/posts/685090696346063e7bc68b0c"
 							},
 							"response": []
 						},
@@ -1508,18 +1290,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"685090696346063e7bc68b0c"
-									]
-								}
+								"url": "http://localhost:3000/posts/685090696346063e7bc68b0c"
 							},
 							"response": []
 						},
@@ -1537,18 +1308,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/685090696346063e7bc68b0c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"685090696346063e7bc68b0c"
-									]
-								}
+								"url": "http://localhost:3000/posts/685090696346063e7bc68b0c"
 							},
 							"response": []
 						},
@@ -1566,18 +1326,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/estePostNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"estePostNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/posts/estePostNoExiste"
 							},
 							"response": []
 						}
@@ -1601,20 +1350,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -1632,17 +1368,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						},
@@ -1660,20 +1386,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/6850a32cf0c094912f53ad2c/asociar/6850a323f0c094912f53ad29",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850a32cf0c094912f53ad2c",
-										"asociar",
-										"6850a323f0c094912f53ad29"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850a32cf0c094912f53ad2c/asociar/6850a323f0c094912f53ad29"
 							},
 							"response": []
 						},
@@ -1682,18 +1395,7 @@
 							"request": {
 								"method": "DELETE",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/6850a32cf0c094912f53ad2c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850a32cf0c094912f53ad2c"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850a32cf0c094912f53ad2c"
 							},
 							"response": []
 						},
@@ -1702,18 +1404,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/685090ca6346063e7bc68b11",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"685090ca6346063e7bc68b11"
-									]
-								}
+								"url": "http://localhost:3000/posts/685090ca6346063e7bc68b11"
 							},
 							"response": []
 						},
@@ -1722,19 +1413,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/tags/6850a323f0c094912f53ad29/posts",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags",
-										"6850a323f0c094912f53ad29",
-										"posts"
-									]
-								}
+								"url": "http://localhost:3000/tags/6850a323f0c094912f53ad29/posts"
 							},
 							"response": []
 						},
@@ -1743,18 +1422,7 @@
 							"request": {
 								"method": "DELETE",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/postNuncaCreado",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"postNuncaCreado"
-									]
-								}
+								"url": "http://localhost:3000/posts/postNuncaCreado"
 							},
 							"response": []
 						}
@@ -1778,20 +1446,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -1809,18 +1464,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b2d3cfa4bc6644ed4710",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b2d3cfa4bc6644ed4710"
-									]
-								}
+								"url": "http://localhost:3000/post_images/6850b2d3cfa4bc6644ed4710"
 							},
 							"response": []
 						},
@@ -1829,19 +1473,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/6850b2d3cfa4bc6644ed4710/post_images",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850b2d3cfa4bc6644ed4710",
-										"post_images"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850b2d3cfa4bc6644ed4710/post_images"
 							},
 							"response": []
 						}
@@ -1864,17 +1496,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						},
@@ -1892,20 +1514,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -1923,20 +1532,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/685091de6346063e7bc68b1a/asociar/685091d16346063e7bc68b17",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"685091de6346063e7bc68b1a",
-										"asociar",
-										"685091d16346063e7bc68b17"
-									]
-								}
+								"url": "http://localhost:3000/posts/685091de6346063e7bc68b1a/asociar/685091d16346063e7bc68b17"
 							},
 							"response": []
 						},
@@ -1954,20 +1550,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/estePostNoExiste/asociar/685091d16346063e7bc68b17",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"estePostNoExiste",
-										"asociar",
-										"685091d16346063e7bc68b17"
-									]
-								}
+								"url": "http://localhost:3000/posts/estePostNoExiste/asociar/685091d16346063e7bc68b17"
 							},
 							"response": []
 						},
@@ -1985,20 +1568,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/685091de6346063e7bc68b1a/asociar/esteTagNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"685091de6346063e7bc68b1a",
-										"asociar",
-										"esteTagNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/posts/685091de6346063e7bc68b1a/asociar/esteTagNoExiste"
 							},
 							"response": []
 						},
@@ -2016,20 +1586,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/estePostNoExiste/asociar/esteTagNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"estePostNoExiste",
-										"asociar",
-										"esteTagNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/posts/estePostNoExiste/asociar/esteTagNoExiste"
 							},
 							"response": []
 						}
@@ -2053,17 +1610,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						},
@@ -2081,20 +1628,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -2112,20 +1646,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/6850924a6346063e7bc68b23/asociar/685092406346063e7bc68b20",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850924a6346063e7bc68b23",
-										"asociar",
-										"685092406346063e7bc68b20"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850924a6346063e7bc68b23/asociar/685092406346063e7bc68b20"
 							},
 							"response": []
 						},
@@ -2134,19 +1655,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/6850924a6346063e7bc68b23/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850924a6346063e7bc68b23",
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850924a6346063e7bc68b23/tags"
 							},
 							"response": []
 						},
@@ -2155,19 +1664,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/estePostNoExiste/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"estePostNoExiste",
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/posts/estePostNoExiste/tags"
 							},
 							"response": []
 						}
@@ -2197,17 +1694,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						}
@@ -2221,17 +1708,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						}
@@ -2254,17 +1731,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						},
@@ -2273,18 +1740,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/tags/68509b5ef0c094912f53ad16",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags",
-										"68509b5ef0c094912f53ad16"
-									]
-								}
+								"url": "http://localhost:3000/tags/68509b5ef0c094912f53ad16"
 							},
 							"response": []
 						},
@@ -2293,18 +1749,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/tags/esteTagNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags",
-										"esteTagNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/tags/esteTagNoExiste"
 							},
 							"response": []
 						}
@@ -2327,20 +1772,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -2358,20 +1790,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -2389,17 +1808,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						},
@@ -2417,20 +1826,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/68509cc3f0c094912f53ad1f/asociar/68509cb3f0c094912f53ad1c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"68509cc3f0c094912f53ad1f",
-										"asociar",
-										"68509cb3f0c094912f53ad1c"
-									]
-								}
+								"url": "http://localhost:3000/posts/68509cc3f0c094912f53ad1f/asociar/68509cb3f0c094912f53ad1c"
 							},
 							"response": []
 						},
@@ -2448,20 +1844,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/68509ca9f0c094912f53ad1a/asociar/68509cb3f0c094912f53ad1c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"68509ca9f0c094912f53ad1a",
-										"asociar",
-										"68509cb3f0c094912f53ad1c"
-									]
-								}
+								"url": "http://localhost:3000/posts/68509ca9f0c094912f53ad1a/asociar/68509cb3f0c094912f53ad1c"
 							},
 							"response": []
 						},
@@ -2470,19 +1853,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/tags/68509cb3f0c094912f53ad1c/posts",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags",
-										"68509cb3f0c094912f53ad1c",
-										"posts"
-									]
-								}
+								"url": "http://localhost:3000/tags/68509cb3f0c094912f53ad1c/posts"
 							},
 							"response": []
 						}
@@ -2505,20 +1876,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -2536,20 +1894,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -2567,17 +1912,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						},
@@ -2595,20 +1930,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/6850a6abf0c094912f53ad37/asociar/6850a6d0f0c094912f53ad3c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850a6abf0c094912f53ad37",
-										"asociar",
-										"6850a6d0f0c094912f53ad3c"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850a6abf0c094912f53ad37/asociar/6850a6d0f0c094912f53ad3c"
 							},
 							"response": []
 						},
@@ -2626,20 +1948,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/posts/6850a6c5f0c094912f53ad3a/asociar/6850a6d0f0c094912f53ad3c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850a6c5f0c094912f53ad3a",
-										"asociar",
-										"6850a6d0f0c094912f53ad3c"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850a6c5f0c094912f53ad3a/asociar/6850a6d0f0c094912f53ad3c"
 							},
 							"response": []
 						},
@@ -2648,18 +1957,7 @@
 							"request": {
 								"method": "DELETE",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/tags/6850a6d0f0c094912f53ad3c",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags",
-										"6850a6d0f0c094912f53ad3c"
-									]
-								}
+								"url": "http://localhost:3000/tags/6850a6d0f0c094912f53ad3c"
 							},
 							"response": []
 						},
@@ -2668,19 +1966,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/6850a6abf0c094912f53ad37/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850a6abf0c094912f53ad37",
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850a6abf0c094912f53ad37/tags"
 							},
 							"response": []
 						},
@@ -2689,19 +1975,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/6850a6c5f0c094912f53ad3a/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850a6c5f0c094912f53ad3a",
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850a6c5f0c094912f53ad3a/tags"
 							},
 							"response": []
 						}
@@ -2724,17 +1998,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags"
-									]
-								}
+								"url": "http://localhost:3000/tags"
 							},
 							"response": []
 						},
@@ -2752,18 +2016,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/tags/6850a78cf0c094912f53ad49",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"tags",
-										"6850a78cf0c094912f53ad49"
-									]
-								}
+								"url": "http://localhost:3000/tags/6850a78cf0c094912f53ad49"
 							},
 							"response": []
 						}
@@ -2791,20 +2044,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -2822,21 +2062,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/6850a912f0c094912f53ad4d/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"6850a912f0c094912f53ad4d",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/6850a912f0c094912f53ad4d/"
 							},
 							"response": []
 						},
@@ -2857,18 +2083,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/comments/6850a929f0c094912f53ad51",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"comments",
-										"6850a929f0c094912f53ad51"
-									]
-								}
+								"url": "http://localhost:3000/comments/6850a929f0c094912f53ad51"
 							},
 							"response": []
 						},
@@ -2889,18 +2104,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/comments/comentarioQueNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"comments",
-										"comentarioQueNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/comments/comentarioQueNoExiste"
 							},
 							"response": []
 						}
@@ -2923,20 +2127,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -2954,21 +2145,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/6850aa90f0c094912f53ad57/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"6850aa90f0c094912f53ad57",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/6850aa90f0c094912f53ad57/"
 							},
 							"response": []
 						},
@@ -2986,18 +2163,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/comments/6850aaabf0c094912f53ad5f",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"comments",
-										"6850aaabf0c094912f53ad5f"
-									]
-								}
+								"url": "http://localhost:3000/comments/6850aaabf0c094912f53ad5f"
 							},
 							"response": []
 						},
@@ -3015,18 +2181,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/comments/comentarioQueNoExiste",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"comments",
-										"comentarioQueNoExiste"
-									]
-								}
+								"url": "http://localhost:3000/comments/comentarioQueNoExiste"
 							},
 							"response": []
 						}
@@ -3049,20 +2204,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -3080,21 +2222,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/comentarPost/6850ab29f0c094912f53ad63/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"comentarPost",
-										"6850ab29f0c094912f53ad63",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/comentarPost/6850ab29f0c094912f53ad63/"
 							},
 							"response": []
 						},
@@ -3112,18 +2240,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/comments/6850ab32f0c094912f53ad67",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"comments",
-										"6850ab32f0c094912f53ad67"
-									]
-								}
+								"url": "http://localhost:3000/comments/6850ab32f0c094912f53ad67"
 							},
 							"response": []
 						},
@@ -3132,19 +2249,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/6850ab29f0c094912f53ad63/todosLosComments",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850ab29f0c094912f53ad63",
-										"todosLosComments"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850ab29f0c094912f53ad63/todosLosComments"
 							},
 							"response": []
 						},
@@ -3165,18 +2270,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/comments/6850ab32f0c094912f53ad67",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"comments",
-										"6850ab32f0c094912f53ad67"
-									]
-								}
+								"url": "http://localhost:3000/comments/6850ab32f0c094912f53ad67"
 							},
 							"response": []
 						}
@@ -3197,27 +2291,14 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test para asociarlo a una imagen\"\r\n}",
+									"raw": "{\r\n    \"fecha\": \"2025-05-28\",\r\n    \"descripcion\": \"Test para asociarlo a una imagen\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -3227,26 +2308,21 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"url\": \"crearPost_Image.com\"\r\n}",
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "e:\\unahur\\edp\\mongo\\images\\paisaje.jfif"
+										}
+									],
 									"options": {
-										"raw": {
+										"formdata": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b1d0cfa4bc6644ed470a",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b1d0cfa4bc6644ed470a"
-									]
-								}
+								"url": "http://localhost:3000/post_images/68556f7cd6b35b9b03fddb10"
 							},
 							"response": []
 						}
@@ -3262,27 +2338,14 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test obtenerUnPost_Image\"\r\n}",
+									"raw": "{\r\n    \"fecha\": \"2025-05-29\",\r\n    \"descripcion\": \"Test para asociarlo a una imagen\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -3292,26 +2355,21 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"url\": \"obtenerUnPost_Image.com\"\r\n}",
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "e:\\unahur\\edp\\mongo\\images\\paisaje.jfif"
+										}
+									],
 									"options": {
-										"raw": {
+										"formdata": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b55bb976ebe18e5ee42e",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b55bb976ebe18e5ee42e"
-									]
-								}
+								"url": "http://localhost:3000/post_images/68556f92d6b35b9b03fddb16"
 							},
 							"response": []
 						},
@@ -3320,18 +2378,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b56db976ebe18e5ee431",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b56db976ebe18e5ee431"
-									]
-								}
+								"url": "http://localhost:3000/post_images/68556f9ad6b35b9b03fddb19"
 							},
 							"response": []
 						}
@@ -3354,20 +2401,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -3385,18 +2419,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b5c8b976ebe18e5ee436",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b5c8b976ebe18e5ee436"
-									]
-								}
+								"url": "http://localhost:3000/post_images/6850b5c8b976ebe18e5ee436"
 							},
 							"response": []
 						},
@@ -3414,18 +2437,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b5d2b976ebe18e5ee439",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b5d2b976ebe18e5ee439"
-									]
-								}
+								"url": "http://localhost:3000/post_images/6850b5d2b976ebe18e5ee439"
 							},
 							"response": []
 						}
@@ -3448,20 +2460,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/users/raul/crearPost/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"raul",
-										"crearPost",
-										""
-									]
-								}
+								"url": "http://localhost:3000/users/raul/crearPost/"
 							},
 							"response": []
 						},
@@ -3479,18 +2478,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b689b976ebe18e5ee43d",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b689b976ebe18e5ee43d"
-									]
-								}
+								"url": "http://localhost:3000/post_images/6850b689b976ebe18e5ee43d"
 							},
 							"response": []
 						},
@@ -3508,18 +2496,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/post_images/6850b69ab976ebe18e5ee440",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"post_images",
-										"6850b69ab976ebe18e5ee440"
-									]
-								}
+								"url": "http://localhost:3000/post_images/6850b69ab976ebe18e5ee440"
 							},
 							"response": []
 						},
@@ -3528,19 +2505,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/posts/6850b689b976ebe18e5ee43d/post_images",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"posts",
-										"6850b689b976ebe18e5ee43d",
-										"post_images"
-									]
-								}
+								"url": "http://localhost:3000/posts/6850b689b976ebe18e5ee43d/post_images"
 							},
 							"response": []
 						}
