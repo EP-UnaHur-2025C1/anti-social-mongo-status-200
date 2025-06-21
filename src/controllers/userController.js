@@ -156,9 +156,14 @@ const obtenerSeguidos = async (req,res) => {
 }
 
 const seguirUser = async (req,res) => {
+  const userNickName = req.params.nickName
+  const targetNickName = req.params.targetNickName
+
+  // Un usuario no puede seguirse a sí mismo
+  if( userNickName === targetNickName ){
+    return res.status(400).json({ message: `No podés seguirte a vos mismo.`})
+  }
   try {
-    const userNickName = req.params.nickName
-    const targetNickName = req.params.targetNickName
 
     const userTarget = await User.findOne({nickName: targetNickName})
     const targetId = userTarget._id.toString()
@@ -187,10 +192,14 @@ const seguirUser = async (req,res) => {
 }
 
 const dejarDeSeguirUser = async (req,res) => {
-  try {
-    const userNickName = req.params.nickName
-    const targetNickName = req.params.targetNickName
+  const userNickName = req.params.nickName
+  const targetNickName = req.params.targetNickName
 
+  // Un usuario no puede dejar de seguirse a sí mismo
+  if( userNickName === targetNickName ){
+    return res.status(400).json({ message: `No podés dejar de seguirte a vos mismo.`})
+  }
+  try {
     const user = await User.findOne({nickName:userNickName})
     const userId = user._id.toString()
     const target = await User.findOne({nickName:targetNickName})
