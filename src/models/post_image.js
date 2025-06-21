@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const post_imageSchema = new mongoose.Schema({
     url: {
         type: String,
-        required: true
+        required: [true, "Es necesario especificar la URL de la imagen"]
     },
     post: {
         type: mongoose.Schema.ObjectId,
         ref: 'Post',
-        required: true
+        required: [true, "Es necesario indicar la publicación a la que pertenece la imagen"]
     }
 },{strict: false})
 

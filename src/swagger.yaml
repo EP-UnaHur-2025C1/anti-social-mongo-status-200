@@ -1,0 +1,809 @@
+openapi: 3.0.0
+info:
+  title: AntiSocialApi
+  description: Documentacion AntiSocialApi
+  version: 1.0.0
+servers:
+  - url: "http://localhost:3000"
+    description: Local
+
+components:
+  schemas:
+    User:
+      type: object
+      properties: 
+        nickName:
+          type: string
+          example: usuario001
+        email:
+          type: string
+          example: usuario001@email.com
+    Post:
+      type: object
+      properties:
+        fecha:
+          type: string
+          format: date-time
+          example: '2025-05-18T16:00:00Z'
+        descripcion:
+          type: string
+          example: nuevo post 
+    Post_images:
+      type: object
+      properties:
+        url:
+          type: string
+          example: "/archivos/foto.jpg"
+        nickname:
+          type: string
+          example: usuario001
+        postId:
+          type: integer
+          example: 00001
+    Comment:
+      type: object
+      properties:
+        fecha:
+          type: string
+          format: date-time
+          example: '2025-05-18T17:00:00Z'
+        descripcion:
+          type: string
+          example: nuevo comentario
+    Tag:
+      type: object
+      properties:
+        descripcion:
+          type: string
+          example: nuevo tag
+
+paths:
+  /users:
+    get:
+      summary: Obtener todos los usuarios
+      tags: 
+        - Users
+      responses:
+        '200':
+          description: Lista de usuarios
+        '500':
+          description: Error interno del servidor
+    post:
+      summary: Crea un usuario
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200': 
+          description: Usuario
+        '400':
+          description: Datos Invalidos
+        '500': 
+          description: Error interno del servidor
+  
+  /users/{nickName}:
+    get:
+      summary: Obtener un usuario por nickName
+      tags:
+        - Users
+      parameters:
+        - name: nickName
+          in: path
+          required: true
+          schema:
+            type: string  
+      responses:
+        '200':
+          description: Usuario
+        '404':
+          description: Usuario no encontrado
+        '500':
+          description: Error interno del servidor
+    put:
+      summary: Actualizar un usuario por nickName
+      tags:
+        - Users
+      parameters:
+        - name: nickName
+          in: path
+          required: true
+          schema:
+            type: string 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Usuario actualizado exitosamente
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Usuario no encontrado
+        '500':
+          description: Error interno del servidor
+    patch:
+      summary: Modificar un usuario por nickName
+      tags:
+        - Users
+      parameters:
+        - name: nickName
+          in: path
+          required: true
+          schema:
+            type: string  
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Usuario
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Usuario no encontrado
+        '500':
+          description: Error interno del servidor
+    delete:
+      summary: Eliminar un usuario por nickName
+      tags:
+        - Users
+      parameters:
+        - name: nickName
+          in: path
+          required: true
+          schema:
+            type: string  
+      responses:
+        '200':
+          description: Usuario eliminado exitosamente
+        '404':
+          description: Usuario no encontrado
+        '500':
+          description: Error interno del servidor
+  
+  /users/{nickName}/crearPost:
+    post:
+      summary: Crear una nueva publicacion
+      tags:
+        - Users
+      parameters:
+        - name: nickName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        '200': 
+          description: Post 
+        '400':
+          description: Datos Invalidos
+        '404':
+          description: Usuario no encontrado
+        '500': 
+          description: Error interno del servidor
+  
+  /users/{nickName}/comentarPost/{postId}:
+    post:
+      summary: Comentar una publicacion
+      tags:
+        - Users
+      parameters:
+        - name: nickName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: postId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200': 
+          description: Post 
+        '400':
+          description: Datos Invalidos
+        '404':
+          description: Usuario no encontrado
+        '500': 
+          description: Error interno del servidor
+  
+  /posts:
+    get:
+      summary: Obtener todos los posts
+      tags:
+        - Posts
+      responses:
+        '200':
+          description: Posts
+        '500':
+          description: Error interno del servidor
+
+  /posts/{id}:
+    get:
+      summary: Obtener un post por id
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Post 
+        '404':
+          description: Post no encontrado
+        '500': 
+          description: Error interno del servidor
+    put:
+      summary: Actualizar un post por id
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: Post actualizado exitosamente
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Post no encontrado
+        '500':
+          description: Error interno del servidor
+    patch:
+      summary: Modificar un post por id
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: Post 
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Post no encontrado
+        '500':
+          description: Error interno del servidor
+    delete:
+      summary: Eliminar un post por id
+      tags:
+        - Posts
+      parameters:
+        - name: nickName
+          in: path
+          required: true
+          schema:
+            type: string  
+      responses:
+        '200':
+          description: Post eliminado exitosamente
+        '404':
+          description: Post no encontrado
+        '500':
+          description: Error interno del servidor
+  
+  /posts/{id}/comentariosRecientes:
+    get:
+      summary: Obtener comentarios recientes de un post por id
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Comentarios recientes
+        '404':
+          description: Post no encontrado
+        '500': 
+          description: Error interno del servidor
+  
+  /posts/{id}/todosLosComentarios:
+    get:
+      summary: Obtener todos los comentarios de un post por id
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Comentarios 
+        '404':
+          description: Post no encontrado
+        '500': 
+          description: Error interno del servidor
+  
+  /posts/{id}/asignTag/{tagId}:
+    post:
+      summary: Asignar un tag por id a un post por id
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: tagId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Tag asignado exitosamente 
+        '404':
+          description: Post o Tag no encontrado
+        '500': 
+          description: Error interno del servidor
+
+  /tags:
+    get:
+      summary: Obtener todos los tags
+      tags:
+        - Tags
+      responses:
+        '200':
+          description: Tags
+        '500':
+          description: Error interno del servidor
+    post:
+      summary: Crear un tag
+      tags:
+        - Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      responses:
+        '200': 
+          description: Tag
+        '400':
+          description: Datos Invalidos
+        '500': 
+          description: Error interno del servidor
+  
+  /tags/{id}:
+    get:
+      summary: Obtener un post por id
+      tags:
+        - Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Tag 
+        '404':
+          description: Tag no encontrado
+        '500': 
+          description: Error interno del servidor
+    patch:
+      summary: Modificar un tag por id
+      tags:
+        - Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      responses:
+        '200':
+          description: Tag 
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Tag no encontrado
+        '500':
+          description: Error interno del servidor
+    put:
+      summary: Actualizar un tag por id
+      tags:
+        - Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+      responses:
+        '200':
+          description: Tag actualizado exitosamente
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Tag no encontrado
+        '500':
+          description: Error interno del servidor
+    delete:
+      summary: Eliminar un tag por id
+      tags:
+        - Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer  
+      responses:
+        '200':
+          description: Tag eliminado exitosamente
+        '404':
+          description: Tag no encontrado
+        '500':
+          description: Error interno del servidor
+
+  /tags/{idTag}/asociarAUnPost/{idPost}:
+    post:
+      summary: Asignar un tag por id a un post por id
+      tags:
+        - Tags
+      parameters:
+        - name: idTag
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: idPost
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Tag asignado exitosamente 
+        '404':
+          description: Post o Tag no encontrado
+        '500': 
+          description: Error interno del servidor
+  
+  /tags/{id}/posts:
+    get:
+      summary: Obtener todos posts que tengan un tag
+      tags:
+        - Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Posts 
+        '404':
+          description: Tag no encontrado
+        '500': 
+          description: Error interno del servidor
+
+  /post_images/{id}:
+    get:
+      summary: Obtener post_image por id
+      tags:
+        - Post_images
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Post_image 
+        '404':
+          description: Post_image no encontrada
+        '500': 
+          description: Error interno del servidor
+    patch:
+      summary: Modificar una post_image por id
+      tags:
+        - Post_images
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post_images'
+      responses:
+        '200':
+          description: post_image 
+        '400':
+          description: Datos invalidos
+        '404':
+          description: post_image no encontrada
+        '500':
+          description: Error interno del servidor
+    put:
+      summary: Actualizar un post_image por id
+      tags:
+        - Post_images
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post_images'
+      responses:
+        '200':
+          description: Post_image actualizado exitosamente
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Post_image no encontrado
+        '500':
+          description: Error interno del servidor
+    delete:
+      summary: Eliminar un post_image por id
+      tags:
+        - Post_images
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer  
+      responses:
+        '200':
+          description: Post_image eliminado exitosamente
+        '404':
+          description: Post_image no encontrado
+        '500':
+          description: Error interno del servidor
+
+  /post_images/{idPost}/agregarImagen/{idUsuario}:
+    post:
+      summary: Crear un post_image asociado a un post por idPost y a un usuario por idUsuario
+      tags:
+        - Post_images
+      parameters:
+        - name: idPost
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: idUsuario
+          in: path
+          required: true
+          schema:
+            type: String
+      responses:
+        '200': 
+          description: Post_image 
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Post o Usuario invalido
+        '500': 
+          description: Error interno del servidor
+
+  /post_images/{postId}/posts:
+    get:
+      summary: Obtener todas las imagenes de un post por postId
+      tags:
+        - Post_images
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Post_images 
+        '404':
+          description: Post no encontrado
+        '500': 
+          description: Error interno del servidor
+
+  /comments/{id}:
+    get:
+      summary: Obtener comment por id
+      tags:
+        - Comments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Comment 
+        '404':
+          description: Comment no encontrada
+        '500': 
+          description: Error interno del servidor
+    put:
+      summary: Actualizar un comment por id
+      tags:
+        - Comments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comments'
+      responses:
+        '200':
+          description: Comment actualizado exitosamente
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Comment no encontrado
+        '500':
+          description: Error interno del servidor
+    patch:
+      summary: Modificar un comment por id
+      tags:
+        - Comments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        '200':
+          description: Comentario modificado exitosamente 
+        '400':
+          description: Datos invalidos
+        '404':
+          description: Comment no encontrado
+        '500':
+          description: Error interno del servidor
+    delete:
+      summary: Eliminar un comment por id
+      tags:
+        - Comments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer  
+      responses:
+        '200':
+          description: Comentario eliminado exitosamente
+        '404':
+          description: Comment no encontrado
+        '500':
+          description: Error interno del servidor
+
+  /comments/{postId}/comments:
+    get:
+      summary: Obtener todos los comments de un post por postId
+      tags:
+        - Comments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+          description: Comments 
+        '404':
+          description: Post no encontrado
+        '500': 
+          description: Error interno del servidor
+
+  /comments/{nickName}/user:
+    get:
+      summary: Obtener todos los comments de un usuario por nickName
+      tags:
+        - Comments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200': 
+          description: Comments 
+        '404':
+          description: Usuario no encontrado
+        '500': 
+          description: Error interno del servidor

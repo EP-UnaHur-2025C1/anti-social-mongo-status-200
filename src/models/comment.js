@@ -4,22 +4,24 @@ require('dotenv').config()
 const commentSchema = new mongoose.Schema({
     descripcion:{
         type: String,
-        required: true,
-        minLenght: 1
+        required: [true, "El comentario debe tener contenido"],
+        minLength: [1, "El comentario no puede estar vacío"],
+        maxlength: [300, "El comentario no puede exceder los 300 caracteres"]
+
     },
     fecha:{
         type: Date,
-        required: true
+        required: [true, "El comentario debe tener una fecha"]
     },
     user:{
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: true
+        required: [true, "El comentario debe pertenecer a un usuario"]
     },
     post:{
         type: mongoose.Schema.ObjectId,
         ref: 'Post',
-        required: true
+        required: [true, "El comentario debe pertenecer a una publicación"]
     }
 
 }, {strict: false, toJSON: { virtuals: true }, id: false})

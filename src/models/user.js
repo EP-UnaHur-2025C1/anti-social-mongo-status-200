@@ -4,12 +4,14 @@ const userSchema = new mongoose.Schema({
     nickName:{
         type: String,
         unique: true,
-        required: [true, "El nombre de usuario es obligatorio"]
+        required: [true, "El nombre de usuario es obligatorio"],
+        minlength: [3, "El nombre de usuario debe tener al menos 3 caracteres"],
+        maxlength: [20, "El nombre de usuario no puede exceder los 20 caracteres"]
     },
     eMail:{
         type: String,
-        required: [true, "La direccion de correo electronico es obligatoria"],
-        match: [/.+\@.+\..+/, "La direccion de correo electronico no es valida"]
+        required: [true, "La dirección de correo electrónico es obligatoria"],
+        match: [/.+\@.+\..+/, "La dirección de correo electrónico no es valida"]
     },
     followers:[{
       type: mongoose.Schema.ObjectId,

@@ -1,10 +1,9 @@
 const express = require('express')
 const conectarMongoDB = require('./config/db')
-const commentRouter = require('./routes/commentRouter');
-const post_imageRouter = require('./routes/post_imageRouter');
-const postRouter = require('./routes/postRouter');
-const tagRouter = require('./routes/tagRouter');
-const userRouter = require('./routes/userRouter')
+const {commentRouter, post_imageRouter, postRouter, tagRouter, userRouter} = require('./routes/index')
+const swaggerUi = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDoc = YAML.load('src/swagger.yaml')
 require('dotenv').config()
 
 const app = express()
@@ -17,6 +16,7 @@ app.use('/post_images', post_imageRouter)
 app.use('/posts', postRouter)
 app.use('/tags', tagRouter)
 app.use('/users', userRouter)
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
 
 conectarMongoDB()
 
