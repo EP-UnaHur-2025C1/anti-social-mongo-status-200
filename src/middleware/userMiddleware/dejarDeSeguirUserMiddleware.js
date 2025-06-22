@@ -15,7 +15,7 @@ const dejarDeSeguirUserMiddleware = async (req, res, next) => {
     const user = await User.findOne({nickName: userNickName})//.select('nickName -_id').populate('followers','nickName')
     
     if( !user || !userTarget ){
-      return res.status(404).json({ msg: "Usuarios no encontrados." })
+      return res.status(404).json({ msg: "Usuario o usuario a seguir no encontrado" })
     }    
     // Un usuario no puede dejar de seguir a otro usuario que no siga
     if( !user.follows.includes(userTarget._id)){
@@ -24,7 +24,7 @@ const dejarDeSeguirUserMiddleware = async (req, res, next) => {
     }
     
   } catch (error) {
-    res.status(500).json({ message: `Error al dejar de seguir usuario en el middleware` })
+    res.status(500).json({ message: `Error interno del servidor` })
   }
   next()
 }

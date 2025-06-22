@@ -7,7 +7,7 @@ const crearTag = async (req, res) => {
         res.status(201).json(nuevoTag)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al crear tag.' })
+        res.status(400).json({ error: 'Error al crear la etiqueta' })
     }
 }
 
@@ -28,7 +28,7 @@ const obtenerUnTag = async (req, res) => {
         res.status(200).json(tag)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al obtener el tag.' })
+        res.status(400).json({ error: 'Error al obtener la etiqueta' })
     }
 }
 
@@ -40,7 +40,7 @@ const obtenerPostsConUnTag = async (req, res) => {
         res.status(200).json(posts)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al obtener posts con el tag dado' })
+        res.status(400).json({ error: 'Error al obtener publicaciones con la etiqueta' })
     }
 }
 
@@ -51,7 +51,7 @@ const modificarTag = async (req, res) => {
         res.status(200).json(tagModificada)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al modificar tag.' })
+        res.status(400).json({ error: 'Error al modificar la etiqueta' })
     }
 }
 
@@ -62,7 +62,7 @@ const eliminarTag = async (req, res) => {
         res.status(200).json({ message: "Etiqueta eliminada exitosamente" })
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al eliminar tag.' })
+        res.status(400).json({ error: 'Error al eliminar la etiqueta' })
     }
 }
 

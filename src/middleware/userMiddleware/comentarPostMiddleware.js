@@ -7,14 +7,14 @@ const comentarPostMiddleware = async (req, res, next) => {
     try {
         const user = await User.findOne({ nickName: userNickName })
         if (!user) {
-            return res.status(404).json({ message: 'Error en el middleware: usuario no encontrado' })
+            return res.status(404).json({ message: 'Usuario no encontrado' })
         }
-        const post = await Post.findOne({ postId })
+        const post = await Post.findById(postId)
         if( !post ){
-            return res.status(404).json({ message: 'Error en el middleware: post no encontrado' })
+            return res.status(404).json({ message: 'Publicación no encontrada' })
         } 
     } catch (error) {
-        res.status(500).json({ message: `Error en el middleware` })
+        res.status(500).json({ message: `Error interno del servidor` })
     }
     next()
 }

@@ -28,7 +28,7 @@ const obtenerUnUser = async (req, res) => {
     res.status(200).json(user)
   } catch (error) {
     console.error(error);
-    res.status(400).json({ error: 'Error al obtener user' })
+    res.status(400).json({ error: 'Error al obtener el usuario' })
   }
 }
 
@@ -45,7 +45,7 @@ const modificarUser = async (req, res) => {
     res.status(200).json(userModificado)
   } catch (error) {
     console.error(error);
-    res.status(400).json({ error: 'Error al modificar user.' })
+    res.status(400).json({ error: 'Error al modificar usuario' })
   }
 }
 
@@ -58,7 +58,7 @@ const eliminarUser = async (req, res) => {
     res.status(200).json({ message: 'Usuario eliminado exitosamente' })
   } catch (error) {
     console.error(error);
-    res.status(400).json({ error: 'Error al eliminar user.' })
+    res.status(400).json({ error: 'Error al eliminar usuario' })
   }
 }
 
@@ -89,7 +89,7 @@ const crearPost = async (req, res) => {
     res.status(201).json(nuevoPost)
   } catch (error) {
     console.error(error);
-    res.status(400).json({ message: 'Error al crear post.' })
+    res.status(400).json({ message: 'Error al crear la publicación' })
   }
 }
 
@@ -111,7 +111,7 @@ const comentarPost = async (req, res) => {
     res.status(201).json(nuevoComment)
   } catch (error) {
     console.error(error);
-    res.status(400).json({ error: 'Error al comentar el post' })
+    res.status(400).json({ error: 'Error al comentar la publicación' })
   }
 }
 
@@ -133,8 +133,7 @@ const obtenerSeguidos = async (req, res) => {
     res.status(200).json(user)
   } catch (error) {
     console.error(error);
-
-    res.status(400).json({ error: 'Error al obtener seguidos.' })
+    res.status(400).json({ error: 'Error al obtener usuarios seguidos' })
   }
 }
 

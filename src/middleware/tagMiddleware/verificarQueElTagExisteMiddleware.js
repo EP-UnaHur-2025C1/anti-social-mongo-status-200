@@ -3,12 +3,12 @@ const { Tag } = require('../../models/index');
 const verificarQueElTagExisteMiddleware = async (req, res, next) => {
     const id = req.params.id
     try {
-        const post = await Tag.findOne({ id })
+        const post = await Tag.findById(id)
         if (!post) {
-            return res.status(404).json({ message: 'Error en el middleware: tag no encontrado' })
+            return res.status(404).json({ message: 'Etiqueta no encontrada' })
         }
     } catch (error) {
-        res.status(400).json({ message: `Error en el middleware` })
+        res.status(500).json({ message: `Error interno del servidor` })
     }
     next()
 }

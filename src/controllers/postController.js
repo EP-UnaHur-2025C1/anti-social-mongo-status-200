@@ -26,7 +26,7 @@ const obtenerUnPost = async (req, res) => {
         res.status(200).json(post)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al obtener el post' })
+        res.status(400).json({ error: 'Error al obtener la publicación' })
     }
 }
 const modificarPost = async (req, res) => {
@@ -44,7 +44,7 @@ const modificarPost = async (req, res) => {
         res.status(200).json(postModificado)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al modificar post' })
+        res.status(400).json({ error: 'Error al modificar la publicación' })
     }
 }
 const eliminarPost = async (req, res) => {
@@ -53,10 +53,10 @@ const eliminarPost = async (req, res) => {
         const postEliminado = await Post.findByIdAndDelete(id)
         await Comment.deleteMany({ post: id })
         await Post_Image.deleteMany({ post: id })
-        res.status(200).json({ message: 'Publicacion eliminada exitosamente' })
+        res.status(200).json({ message: 'Publicación eliminada exitosamente' })
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al eliminar post' })
+        res.status(400).json({ error: 'Error al eliminar la publicación' })
     }
 }
 const asociarTag = async (req, res) => {
@@ -70,7 +70,7 @@ const asociarTag = async (req, res) => {
         res.status(200).json(post)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al asociar tag' })
+        res.status(400).json({ error: 'Error al asociar la etiqueta' })
     }
 }
 const obtenerComentariosDeUnPost = async (req, res) => {
@@ -83,7 +83,7 @@ const obtenerComentariosDeUnPost = async (req, res) => {
         res.status(200).json(comments)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al obtener comentarios de un post' })
+        res.status(400).json({ error: 'Error al obtener comentarios de una publicación' })
     }
 }
 
@@ -111,7 +111,7 @@ const obtenerTags = async (req, res) => {
         res.status(200).json(tags)
     } catch (error) {
         console.error(error);
-        res.status(400).json({ error: 'Error al obtener tags' })
+        res.status(400).json({ error: 'Error al obtener las etiquetas' })
     }
 }
 

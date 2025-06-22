@@ -10,7 +10,7 @@ const crearPost_image = async (req, res) => {
             post: postId
         })
         await nuevoPost_image.save()
-        res.status(200).json(nuevoPost_image)
+        res.status(201).json(nuevoPost_image)
     } catch (error) {
         console.error(error);
         res.status(400).json({ error: 'Error al crear Post_Image' })
@@ -44,7 +44,7 @@ const eliminarPost_image = async (req, res) => {
     const id = req.params.id
     try {
         const post_imageEliminada = await Post_Image.findByIdAndDelete(id)
-        res.status(200).json({ message: "Imagen eliminada exitosamente" })
+        res.status(200).json({ message: "Post_image eliminado exitosamente" })
     } catch (error) {
         console.error(error);
         res.status(400).json({ error: 'Error al eliminar Post_Image' })

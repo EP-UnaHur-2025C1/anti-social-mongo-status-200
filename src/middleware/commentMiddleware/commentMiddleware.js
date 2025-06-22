@@ -6,11 +6,11 @@ const commentMiddleware = async (req, res, next) => {
     try {
         const comment = await Comment.findById(id)
         if( !comment ){            
-            return res.status(404).json({message: 'Error en el middleware: comentario no encontrado'})
+            return res.status(404).json({message: 'Comentario no encontrado'})
         }
     } catch (error) {
         console.error(error);
-        console.log("Error en el middleware.");
+        res.status(500).json({ message: `Error interno del servidor` });
         
     }
     next()
