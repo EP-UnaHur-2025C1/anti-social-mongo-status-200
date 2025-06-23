@@ -1,10 +1,10 @@
 const { Post, Tag } = require('../../models/index');
 
 const asociarTagMiddleware = async (req, res, next) => {
-    const id = req.params.id
+    const postId = req.params.postId
     const tagId = req.params.tagId
     try {
-        const post = await Post.findById(id)
+        const post = await Post.findById(postId)
         if (!post) {
             return res.status(404).json({ message: 'Publicación no encontrada' })
         }

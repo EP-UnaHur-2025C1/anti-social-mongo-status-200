@@ -1,0 +1,2618 @@
+{
+	"info": {
+		"_postman_id": "bddc766c-03ff-4167-b85a-83bc76a281a2",
+		"name": "Test API AntiSocial - MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "44064892"
+	},
+	"item": [
+		{
+			"name": "Test User",
+			"item": [
+				{
+					"name": "Test crearUser",
+					"item": [
+						{
+							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"raul\",\r\n    \"eMail\": \"raul@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"pepe\",\r\n    \"eMail\": \"pepe@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda agregar un usuario cuyo nickName ya está usado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"raul\",\r\n    \"eMail\": \"raulYaEstaRegistrado@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test crearPost",
+					"item": [
+						{
+							"name": "Que un usuario pueda crear un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"primer post de raul XD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda crear un segundo post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"segundo post de raul XD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda crear un post 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"primer post de pepe :D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario que no existe no pueda crear un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"primer post de pepe1 :D\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/crearPost/"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test comentarPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será comentado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda agregar un comentario a su propio post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Raul comenta su el post creado para ser comentado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda agregar un comentario a un post de otro usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-12-31\",\r\n    \"descripcion\": \"Pepe comenta el post de raul creado para ser comentado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario que no existe no pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este usuario no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda agregar un comentario a un post que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este post no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/111111111111111111111111/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario que no existe no pueda agregar un comentario a un post que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Ni el usuario ni el post existen\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/comentarPost/111111111111111111111111/"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerUsers",
+					"item": [
+						{
+							"name": "Que se puedan ver todos los usuarios",
+							"request": {
+								"auth": {
+									"type": "inherit",
+									"inherit": {}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerUnUser",
+					"item": [
+						{
+							"name": "Que se pueda ver un usuario dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/users/raul"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda ver un usuario dado un determinado nickName 2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/users/pepe"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda ver un usuario que no existe dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/users/usuarioQueNoExiste"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerPostsDeUnUser",
+					"item": [
+						{
+							"name": "Que se puedan ver los posts de un usuario dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/users/raul/posts"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan ver los posts de un usuario dado un determinado nickName 2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/users/pepe/posts"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan ver los posts de un usuario que no existe dado un determinado nickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/posts"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test modificarUser",
+					"item": [
+						{
+							"name": "Que se pueda agregar un usuario para ser modificado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"seraModificado\",\r\n    \"eMail\": \"usuarioQueSeraModificado@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda modificar un user dado un nickName",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"eMail\": \"nuevoEMailDeUsuario@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seraModificado/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar el nickName de un user",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"nuevoUsuarioQueSeraModificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seraModificado/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar un user que no existe dado un nickName",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"eMail\": \"esteUsuarioNoExiste@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test eliminarUser",
+					"item": [
+						{
+							"name": "Que se pueda agregar un usuario mandando el nickName y el eMail para ser posteriormenete eliminado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"seraEliminado\",\r\n    \"eMail\": \"usuarioCreadoParaSerEliminado@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un usuario dado un nickName",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/users/seraEliminado/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda eliminar un usuario ya eliminado",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/users/seraEliminado/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda eliminar un usuario que no existe dado un nickName",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/users/usuarioQueNoExiste/"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test seguirUser",
+					"item": [
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"seguirUser1\",\r\n    \"eMail\": \"seguirUser1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para ser seguido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"seguirUser2\",\r\n    \"eMail\": \"seguirUser2@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/seguirUser2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda seguir a otro que ya sigue",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/seguirUser2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda seguir a otro que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/usuarioQueNoExiste"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no se pueda seguir a sí mismo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/seguirUser1/follow/seguirUser1"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerSeguidores",
+					"item": [
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores1\",\r\n    \"eMail\": \"obtenerSeguidores1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores2\",\r\n    \"eMail\": \"obtenerSeguidores2@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores3\",\r\n    \"eMail\": \"obtenerSeguidores3@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para ser seguido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"obtenerSeguidores4\",\r\n    \"eMail\": \"obtenerSeguidores4@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores1/follow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores2/follow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores3/follow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener todos los followers de un usuario",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores4/followers"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda dejar de seguir a otro",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores3/unfollow/obtenerSeguidores4"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener todos los followers de un usuario luego que uno haya dejado de seguir",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/obtenerSeguidores4/followers"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test dejarDeSeguirUser",
+					"item": [
+						{
+							"name": "Que se pueda crear un usuario para seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"dejarDeSeguir1\",\r\n    \"eMail\": \"dejarDeSeguir1@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un usuario para ser seguido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nickName\": \"dejarDeSeguir2\",\r\n    \"eMail\": \"dejarDeSeguir2@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda seguir a otro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/follow/dejarDeSeguir2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda dejar de seguir a otro",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/unfollow/dejarDeSeguir2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no pueda dejar de seguir a otro que no seguía",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/unfollow/dejarDeSeguir2"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario no se pueda dejar de seguirse a sí mismo",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/dejarDeSeguir1/unfollow/dejarDeSeguir1"
+							},
+							"response": []
+						}
+					],
+					"description": "Carpeta de la entidad User. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				}
+			],
+			"description": "Carpeta de la entidad User dividida en subcarpetas, donde cada una testeará un router. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+		},
+		{
+			"name": "Test Post",
+			"item": [
+				{
+					"name": "Test obtenerPosts",
+					"item": [
+						{
+							"name": "Que se puedan obtener todos los posts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerUnPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser obtenido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"Test para obtenerUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda obtener un post dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda obtener un post que no existe dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerComentariosDeUnPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"Test para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un post recién creado no tenga comentarios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost/todosLosComments"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar recientemente un post de otro usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Raul comenta recientemente el post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Raul comenta el post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar recientemente su propio post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Pepe comenta recientemente su post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su propio post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Pepe comenta su post creado para obtenerComentariosDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener todos los comentarios de un post dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost/todosLosComments"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan obtener todos los comentarios de un post que no existe dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/111111111111111111111111/todosLosComments"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerComentariosRecientesDeUnPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-04-18\",\r\n    \"descripcion\": \"Test para obtenerComentariosRecientesDeUnPost\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario y se vea por ser reciente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este mensaje de Raul se mostrará por ser reciente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Este comentario de Raul no se mostrará\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar un post de otro usuario y no se vea por la antigüedad 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-12-31\",\r\n    \"descripcion\": \"Este comentario de Raul no se mostrará\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su post y se vea por ser reciente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Este comentario de Pepe se verá por ser reciente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su propio post pero no se vea por la antigüedad",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2023-11-02\",\r\n    \"descripcion\": \"Este comentario de Pepe no se verá por la antigüedad\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un usuario pueda comentar su propio post pero no se vea por la antigüedad 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-12-31\",\r\n    \"descripcion\": \"Este comentario de Pepe no se verá por la antigüedad\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/pepe/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan ver solo los comentarios recientes de un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost/commentsRecientes"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan obtener todos los comentarios recientes de un post que no existe dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/111111111111111111111111/commentsRecientes"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test modificarPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser modificado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-06-18\",\r\n    \"descripcion\": \"Este post será modificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que solo se pueda modificar la descripción de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"El post de Raul fue modificado :p\",\r\n    \"fecha\": \"2020-05-18\",\r\n    \"user\": \"684f5535eed18b173cd4996c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar la fecha de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2024-05-18\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar el ID de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\": \"684f57fb040827542d9bfaec\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar el user de un post dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": \"684f5535eed18b173cd4996c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar la descripción de un post que no existe dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"Este post no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test eliminarPost",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para ser posteriormente eliminado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será eliminado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un tag para asociar a un post que será eliminado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#postEliminado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post que será eliminado a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost/asociar/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un post",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda obtener un post eliminado dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un post eliminado no aparezca en los posts de un tag",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/tags/idTag/posts"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda eliminar un post que nunca fue creado",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/posts/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerPostImages",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test obtenerPostImages\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un Post_Image a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "e:\\unahur\\edp\\mongo\\assets\\ANTI-SOCIALNET.jpeg"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/68597c7e9394fe3661d73817"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener las imágenes asociadas a un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost/post_images"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan obtener las imágenes asociadas a un post que no existe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/111111111111111111111111/post_images"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test asociarTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#asociarTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost/asociar/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda asociar un post que no existe a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/111111111111111111111111/asociar/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda asociar un post a un tag que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost/asociar/111111111111111111111111"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda asociar un post que no existe a un tag que no existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/111111111111111111111111/asociar/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerTags",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#obtenerTags\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/68597d599394fe3661d73834/asociar/68597d339394fe3661d73830"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener los tags de un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se puedan obtener los tags de un post que no existe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/111111111111111111111111/tags"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				}
+			],
+			"description": "Carpeta de la entidad Post dividida en subcarpetas, donde cada una testeará un router. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+		},
+		{
+			"name": "Test Tag",
+			"item": [
+				{
+					"name": "Test crearTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#Funny\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Tag. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerTags",
+					"item": [
+						{
+							"name": "Que se puedan obtener todos los tags",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Tag. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerUnTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para luego ser obtenido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#EsteTagSeráObtenido\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda obtener un tag dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/tags/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda obtener un tag que no existe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/tags/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Tag. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerPostsConUnTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 1 asociado al tag #obtenerPostsConUnTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 2 asociado al tag #obtenerPostsConUnTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost/asociar/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost/asociar/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se puedan obtener los posts de un tag",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/tags/idTag/posts"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Tag. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test eliminarTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 1 asociado al tag #eliminarTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un post para asociarlo a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Post 2 asociado al tag #eliminarTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un tag para asociar a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#eliminarTag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost/asociar/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda asociar un post a un tag 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Este post será asociado a un tag\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/posts/idPost/asociar/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un tag dado un ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/tags/idTag"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un post no tenga un tag asociado luego de que haya sido eliminado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idTag/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un post no tenga un tag asociado luego de que haya sido eliminado 2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idTag/tags"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Tag. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test modificarTag",
+					"item": [
+						{
+							"name": "Que se pueda crear un tag para ser modificado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#SeráModificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda modificar un tag",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"#FueModificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/tags/idTag"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Tag. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				}
+			],
+			"description": "Carpeta de la entidad Tag. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+		},
+		{
+			"name": "Test Comment",
+			"item": [
+				{
+					"name": "Test obtenerUnComment",
+					"item": [
+						{
+							"name": "Que se pueda agregar un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test de obtenerUnComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Test de obtenerUnComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda ver un comentario dado un ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/comments/idComment"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda ver un comentario que no existe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/comments/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Comment. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test modificarComment",
+					"item": [
+						{
+							"name": "Que se pueda agregar un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test de modificarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Test de modificarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda ver un comentario dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"Comentario modificado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/comments/idComment"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar un comentario que no existe",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"Este comentario no existe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/comments/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Comment. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test eliminarComment",
+					"item": [
+						{
+							"name": "Que se pueda agregar un post para ser comentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test de eliminarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda agregar un comentario a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-11-02\",\r\n    \"descripcion\": \"Test de eliminarComment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/comentarPost/idPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un comentario dado un ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/comments/idComment"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda eliminar un comentario que no existe dado un ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/comments/111111111111111111111111"
+							},
+							"response": []
+						},
+						{
+							"name": "Que un comentario eliminado no aparezca en un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost/todosLosComments"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda ver un comentario eliminado",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/comments/idComment"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Comment. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				}
+			],
+			"description": "Carpeta de la entidad Comment. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+		},
+		{
+			"name": "Test Post_Images",
+			"item": [
+				{
+					"name": "Test crearPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-28\",\r\n    \"descripcion\": \"Test para asociarlo a una imagen\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "e:\\unahur\\edp\\mongo\\images\\paisaje.jfif"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/idPost"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post_Image. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test obtenerUnPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-29\",\r\n    \"descripcion\": \"Test para asociarlo a una imagen\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "e:\\unahur\\edp\\mongo\\images\\paisaje.jfif"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda obtener un Post_Image dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/post_images/idPost_Image"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda obtener un Post_Image que no exista dado un ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/post_images/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post_Image. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test modificarPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test modificarPost_Image\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "e:\\unahur\\edp\\mongo\\assets\\ANTI-SOCIALNET.jpeg"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda modificar un Post_Image dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"urlModificada.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/idPost_Image"
+							},
+							"response": []
+						},
+						{
+							"name": "Que no se pueda modificar un Post_Image que no exista dado un ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"urlModificada.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/111111111111111111111111"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post_Image. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				},
+				{
+					"name": "Test eliminarPost_Image",
+					"item": [
+						{
+							"name": "Que se pueda crear un post para asociarlo a una imagen",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2025-05-18\",\r\n    \"descripcion\": \"Test eliminarPost_Image\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/users/raul/crearPost/"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda crear un Post_Image para asociarlo a un post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "e:\\unahur\\edp\\mongo\\assets\\ANTI-SOCIALNET.jpeg"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/idPost"
+							},
+							"response": []
+						},
+						{
+							"name": "Que se pueda eliminar un Post_Image dado un ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"urlModificada.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/post_images/idPost_Image"
+							},
+							"response": []
+						},
+						{
+							"name": "Que una imagen eliminada no aparezca en las Post_Images de un post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/posts/idPost/post_images"
+							},
+							"response": []
+						}
+					],
+					"description": "Subcarpeta de la entidad Post_Image. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+				}
+			],
+			"description": "Carpeta de la entidad Post_Image. Debido a que cada ejecución genera un ID distinto se colocó un placeholder (\"idPost\", \"idComment\", \"idTag\" e \"idPost_Image\"), los cuales deberán ser reemplazados por el ID de la entidad correspondiente. Para facilitar el testeo, dentro de cada carpeta se crea uno."
+		}
+	]
+}
